@@ -1,16 +1,12 @@
 # 李嘉辉 - VLA算法工程师
 
 ::: left
-icon:weixin 13122333152 icon:email [jiahui.li6@uq.net.au](mailto:jiahui.li6@uq.net.au)
+icon:weixin 13122333152 icon:email jiahui.li6@uq.net.au
 :::
 ::: right
-
-
-
-
-
-
-
+<!-- icon:zhihu [Li Jiahui](https://www.zhihu.com/people/li-jia-hui-66-99) -->
+<!-- icon:github [Li Jiahui](https://github.com/ikalista) -->
+<!-- icon:blog [Li Jiahui](https://ikalista.github.io) -->
 :::
 
 ## 教育背景
@@ -32,7 +28,7 @@ icon:weixin 13122333152 icon:email [jiahui.li6@uq.net.au](mailto:jiahui.li6@uq.n
 
 ## 工作经历
 
-### 嘉银科技｜多模态 & NLP 算法组 Tech Leader / 算法工程师 · 2022年1月 - 至今
+### 嘉银科技｜Tech Leader / 算法工程师 · 2022年1月 - 至今
 
 - 2026年4月晋升为多模态 & NLP 算法组 Tech Leader，管理 6 人算法小组，历史最大管理半径 10 人；主导公司 AI 算法方向的方案设计、模型训练、工程部署与线上迭代，覆盖多模态反欺诈、坐席智能、数据智能、自动化建模与 AI 基础设施建设。
 - 在多个项目中承担技术选型、数据与评测体系建设、模型微调、推理优化和服务化交付，形成从算法验证到稳定业务系统的闭环能力。
@@ -80,9 +76,10 @@ icon:weixin 13122333152 icon:email [jiahui.li6@uq.net.au](mailto:jiahui.li6@uq.n
 
 **行动**：
 
-- 推进 Text2SQL 基座选型与强化学习训练优化，选定 OmniSQL（Qwen2.5-Coder 7B/14B）作为基座，系统对比 DAPO 与 GRPO 在 7B/14B × LoRA/FULL 四组配置下的训练表现，主线收敛为稳定性更优的 DAPO。
+- 围绕团队 Text2SQL 主线，复现并对齐基座评测、数据生成与强化学习训练链路，选定 OmniSQL（Qwen2.5-Coder 7B/14B）作为基座，系统对比 DAPO 与 GRPO 在 7B/14B × LoRA/FULL 四组配置下的训练表现，主线收敛为稳定性更优的 DAPO。
 - 引入重试机制、样本筛选和空结果过滤缓解奖励稀疏问题，将 7B 单次解码得分提升至 68.6，14B self-consistency 得分提升至 71.1；团队 BIRD 榜单达到 dev 71.10 / test 73.45，单模型世界第 6（2025.9）。
-- 定位 vLLM 高 batch 推理下 KV cache 异常，将 `batch_size` 收敛至 8 的稳定配置；主导 MLE-bench / MLEvolve 复现，基于 MLEvolve + DeepSeek 在 MLE-bench lite 划分上复现 73 分基线，接入公司内部建模流程后，新客风控等场景 AUC 较人工建模提升约 1% - 2.5%。
+- 定位 vLLM 高 batch 推理下 KV cache 异常，将 `batch_size` 收敛至 8 的稳定配置。
+- 完成 MLE-bench / MLEvolve 复现，基于 MLEvolve + DeepSeek 在 MLE-bench lite 划分上复现 73 分基线，接入公司内部建模流程后，新客风控等场景 AUC 较人工建模提升约 1% - 2.5%。
 
 ### 3. 坐席智能系统（2023年9月 - 至今）
 
