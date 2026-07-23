@@ -1,0 +1,92 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#00A884"/>
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1565C0"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#00A884"/>
+    </marker>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#F7FAFC"/>
+    <rect x="0" y="0" width="1280" height="116" fill="#FFFFFF"/>
+    <rect x="48" y="104" width="1184" height="1" fill="#D8E1EA"/>
+  </g>
+
+  <g id="header">
+    <rect x="48" y="38" width="8" height="44" rx="4" fill="url(#titleGradient)"/>
+    <text x="70" y="63" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="36" font-weight="700" fill="#0B1F33">伏羲 Auto-Research：以目标指标驱动的模型树搜索</text>
+    <text x="70" y="92" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" fill="#6B7280">固定数据集上自动探索模型节点，围绕 AUC / PR 等目标持续逼近更优解</text>
+  </g>
+
+  <g id="screenshot-evidence">
+    <rect x="48" y="138" width="700" height="426" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2"/>
+    <text x="74" y="168" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="700" fill="#1565C0">真实搜索过程截图</text>
+    <rect x="74" y="186" width="648" height="356" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1"/>
+    <image href="../images/伏羲-autoresearch截图.png" x="78" y="190" width="640" height="351" preserveAspectRatio="xMidYMid meet"/>
+    <text x="74" y="590" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" fill="#6B7280">
+      <tspan x="74" dy="0">每个 node 代表一组候选机器学习模型；搜索树不断比较指标，保留更优路径。</tspan>
+    </text>
+  </g>
+
+  <g id="chartArea">
+    <rect x="780" y="138" width="452" height="426" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2"/>
+    <text x="806" y="168" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="700" fill="#1565C0">搜索机制</text>
+    <!-- chart-plot-area: 806,190,1208,520 -->
+
+    <g id="step-dataset">
+      <rect x="806" y="198" width="126" height="76" rx="8" fill="#E8F2FF" stroke="#1565C0" stroke-width="1.5"/>
+      <use data-icon="phosphor-duotone/database" x="826" y="214" width="30" height="30" fill="#1565C0"/>
+      <text x="872" y="225" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33">确定数据集</text>
+      <text x="872" y="249" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">样本 / 标签 / 口径</text>
+    </g>
+
+    <g id="step-search">
+      <rect x="976" y="198" width="126" height="76" rx="8" fill="#E8F2FF" stroke="#1565C0" stroke-width="1.5"/>
+      <use data-icon="phosphor-duotone/tree-structure" x="996" y="214" width="30" height="30" fill="#1565C0"/>
+      <text x="1042" y="225" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33">模型节点</text>
+      <text x="1042" y="249" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">模型 / 特征 / 参数</text>
+    </g>
+
+    <g id="step-target">
+      <rect x="891" y="340" width="126" height="76" rx="8" fill="#E8F8F2" stroke="#00A884" stroke-width="1.5"/>
+      <use data-icon="phosphor-duotone/target" x="911" y="356" width="30" height="30" fill="#00A884"/>
+      <text x="957" y="367" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33">目标优化</text>
+      <text x="957" y="391" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">AUC / PR / 稳定性</text>
+    </g>
+
+    <line x1="932" y1="236" x2="970" y2="236" stroke="#1565C0" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <path d="M 1039 276 L 1039 306 L 996 334" fill="none" stroke="#00A884" stroke-width="3" marker-end="url(#arrowGreen)"/>
+    <path d="M 902 340 L 850 308 L 850 280" fill="none" stroke="#1565C0" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#arrowBlue)"/>
+
+    <g id="metric-rail">
+      <text x="806" y="476" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="700" fill="#0B1F33">指标驱动的自动选择</text>
+      <line x1="806" y1="502" x2="1208" y2="502" stroke="#D8E1EA" stroke-width="8" stroke-linecap="round"/>
+      <line x1="806" y1="502" x2="1122" y2="502" stroke="#00A884" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="872" cy="502" r="8" fill="#1565C0"/>
+      <circle cx="996" cy="502" r="8" fill="#1565C0"/>
+      <circle cx="1122" cy="502" r="10" fill="#00A884"/>
+      <text x="806" y="530" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">baseline</text>
+      <text x="956" y="530" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">候选模型</text>
+      <text x="1090" y="530" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="700" fill="#00A884">更优路径</text>
+    </g>
+  </g>
+
+  <g id="bottom-takeaway">
+    <rect x="48" y="624" width="1184" height="54" rx="8" fill="#0B1F33"/>
+    <text x="78" y="657" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="20" font-weight="700" fill="#FFFFFF">
+      把“人工试模型”变成“系统性搜索最优模型路径”
+      <tspan fill="#00A884">，模型迭代从经验驱动转向目标函数驱动</tspan>
+    </text>
+  </g>
+
+  <g id="footer">
+    <text x="48" y="704" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">Source: 伏羲 Auto-Research 产品截图；内部业务场景说明</text>
+    <text x="1232" y="704" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280" text-anchor="end">01 / 02</text>
+  </g>
+</svg>

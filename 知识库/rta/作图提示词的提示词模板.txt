@@ -1,0 +1,205 @@
+<content>
+# Agent-Based Financial RTA Bidding System Architecture
+
+## 1. 核心数学构架与目标函数 (Problem Formulation)
+
+本系统的核心不仅仅是预测CTR/CVR，而是解决带约束的组合优化问题（Constrained Optimization）。
+
+
+
+* [cite_start]**原始问题 (Primal Problem)**[cite: 91]:
+
+    * **Objective**: Maximize Total Value ($\sum v_i x_i$)，其中 $v_i = pCVR \cdot pLTV$ (金融场景下即Expected ROI)。
+
+    * **Constraint 1 (Budget)**: $\sum c_i x_i \le B$ (日预算约束)。
+
+    * **Constraint 2 (KPI)**: $\sum c_i x_i / \sum v_i x_i \le K$ (如 ROI > 1.2 或 CPA < 300)。
+
+* [cite_start]**推导结论 (Optimal Bidding Function)**[cite: 112, 146]:
+
+    根据拉格朗日对偶性，最优出价并非黑盒，而是具有解析解形式：
+
+    $$b_{i}^{*} = w_{0} \cdot v_{i} - \sum_{j} w_{j} \cdot \Phi(Constraint_j)$$
+
+    * **设计修正点**：RL Agent 不应直接输出 $b_i$，而应根据当前状态输出最优参数组 $\vec{w} = \{w_0, w_1, ...\}$。
+
+
+
+## 2. 宏观调度层 (Macro Layer: Budget Allocator)
+
+* **角色**: 资金流转中心 (Global Controller)
+
+* **输入**: 各渠道 (抖音/快手/腾讯) 的消耗速度、流量库存预估、当前 ROI。
+
+* **决策逻辑**: 
+
+    * 基于 PID 或 MPC (Model Predictive Control) 动态划拨 Budget。
+
+    * 输出各渠道的 $Budget_{channel}$ 和 $KPI_{target}$ 给微观Agent。
+
+
+
+## 3. 微观决策层 (Micro Layer: USCB Agent Implementation)
+
+此层为架构核心，采用 **Actor-Critic (DDPG)** 框架，但动作空间进行了重新定义。
+
+
+
+### [cite_start]3.1 状态空间 (State Space $S_t$) [cite: 173]
+
+描述当前 Campaign 的健康度与资源余量：
+
+1.  **Time Progress**: $t / T$ (当天剩余时间比例)。
+
+2.  **Budget Consumption**: $Cost_t / Budget_{total}$ (预算消耗比例)。
+
+3.  **Consumption Speed**: 过去 N 分钟的消耗速率。
+
+4.  **KPI Status**: 当前实际 ROI / 目标 ROI (反映 KPI 压力，Decision Critical)。
+
+    * *金融特有特征*: 授信通过率波动、大盘流量质量分分布。
+
+
+
+### [cite_start]3.2 动作空间 (Action Space $A_t$) [cite: 175, 208]
+
+**关键修正**：Agent 不针对单次请求出价，而是每隔 $\Delta t$ (如15分钟) 输出一组参数 $\vec{w}$ 供出价公式使用。
+
+* **Action**: 调整向量 $\vec{a}_t$，更新参数 $\vec{w}_{t+1} = \vec{w}_t \cdot (1 + \vec{a}_t)$。
+
+* **参数物理含义**:
+
+    * $w_0$: 对价值的敏感度（类似基础出价系数）。
+
+    * $w_{budget}$: 对预算约束的影子价格（Shadow Price），预算越紧，$w_{budget}$ 越大，出价越保守。
+
+    * $w_{roi}$: 对 ROI 约束的惩罚系数。
+
+
+
+### [cite_start]3.3 奖励函数 (Reward Function $R_t$) 
+
+* **公式**: $G = \min(\frac{R}{R^*}, 1.0) - \sum \lambda \cdot Penalty_{constraint}$
+
+* **逻辑**: 
+
+    * 最大化累计 Value (授信/放款金额)。
+
+    * 引入 **Soft Penalty**：如果当前出价参数导致 CPA 超标或预算早停，给予强惩罚。
+
+    * [cite_start]*修正依据*: 论文指出仅最大化 Value 会导致忽略约束，需在 Reward 中显式加入约束惩罚项 [cite: 300]。
+
+
+
+## 4. 在线推理与执行层 (Inference & Execution)
+
+解耦 "策略制定 (Policy)" 与 "战术执行 (Execution)"，确保 <50ms 的 RTA 响应。
+
+
+
+* **Parameter Server (策略端)**:
+
+    * 运行 DDPG Actor 网络。
+
+    * 频率：低频更新 (e.g., 每分钟或每15分钟更新一次 $\vec{w}$)。
+
+    * 输出：当前生效的参数 $\vec{w}_{current}$ 写入 Redis/配置中心。
+
+
+
+* **Bidding Engine (执行端)**:
+
+    * 针对每次 HTTP Request 进行无状态计算。
+
+    * **Step 1: Value Prediction**: 调用 pCVR (转化) & pLTV (价值) 模型，计算 $v_i = pCVR \times pLTV$。
+
+    * **Step 2: Formula Calculation**: 读取 Redis 中的 $\vec{w}_{current}$，代入公式：
+
+        $$Bid = w_0 \cdot v_i - w_{budget} \cdot v_i - w_{kpi} \cdot (CPA_{target} - CPA_{expected})$$
+
+    * **Step 3: Response**: 返回 Bid 及其是否参竞 (Filter)。
+
+
+
+## 5. 离线训练与仿真 (Offline Training & Simulation)
+
+[cite_start]基于论文提到的 "Recursive Optimization" 特性提升训练效率 [cite: 185]。
+
+
+
+* **Replay Buffer**: 存储 $(S_t, A_t, R_t, S_{t+1})$ 四元组。
+
+* **Counterfactual Evaluation (反事实评估)**: 
+
+    * 利用历史流量日志 (Logs)，回放不同的参数 $\vec{w}$，模拟如果当时采用该参数会赢得哪些曝光、消耗多少预算。
+
+    * *金融场景注意*: 需修正 pCVR 模型在不同出价下的偏差 (Calibration)。
+
+* **冷启动优化**: 
+
+    * [cite_start]利用历史数据的 Dual Problem 求解出的最优参数 $w^*$ 初始化 Actor 网络 [cite: 272]。
+
+
+
+## 6. 金融业务特有模块 (Domain Specifics)
+
+* **RTA Filter (前置风控)**: 
+
+    * 在进入 Bidding Engine 前，先过规则引擎（黑名单、多头借贷阈值），直接返回 0 出价，节省算力。
+
+* **延迟反馈建模 (Delayed Feedback)**:
+
+    * 金融转化（授信->提款）有 T+N 延迟。Reward 计算需结合 Importance Sampling 或 Wait-to-Model 机制，避免 RL Agent 视短视。
+</content>
+
+<target_style>
+画面风格：
+一张现代、专业的B2B金融科技演示文稿页面，采用干净的极简主义设计。
+主色调为米白，辅以淡淡的蓝色和金色细线，作为数据强调和视觉指引。
+页面布局结构化且模块化，可以是清晰的左右对比卡片设计，也可以是中间一条线的对比文本设计，留白充足。
+视觉元素包括扁平化的科技线面图标、抽象化的声波纹路与盾牌图形，以及高对比度的大字号关键数据展示。
+整体风格传达出可信赖、理性和高科技的商务氛围。
+带有明确的中文标注。
+</target_style>
+
+<task>
+我需要将以上content的内容，并绘制符合以上target_style的ppt进行汇报，我需要你给我一个作图的提示词。
+</task>
+
+<definition>
+你需要定义：
+- 画面风格
+- 画面内容：左，中，右景
+- 总结
+</definition>
+
+<example>
+这是一个很好的例子：
+图像创作提示词 (Image Generation Prompt)
+画面风格：
+一张高端、极简的B2B金融科技演示文稿（PPT）背景图。
+
+色调： 以高级米白色（Beige）为主背景，搭配淡雅的科技蓝（Tech Blue）和精致的香槟金（Champagne Gold）细线条作为视觉引导。
+质感： 扁平化设计（Flat Design）结合微立体（2.5D）元素，强调理性和秩序感。
+构图： 经典的左中右“漏斗式”或“转化式”布局，留白充足，层次分明。
+画面内容：
+
+左侧前景 - 原始数据的“不可用性” (The Unstructured Chaos)：
+视觉主体是一个悬浮的、复杂的3D网络拓扑图（代表声纹图结构）和一团抽象的高维向量云（代表原始特征）。
+这些线条错综复杂，像是一团乱麻，虽然看起来高科技，但显得混乱、难以阅读。
+在这一区域下方，标注淡灰色的中文小字：“非结构化原始特征（图/向量）”。
+为了体现“业务端无法直接调用”，在这个复杂图形旁边，有一个半透明的红色禁止符号或一个断开的连接线，暗示数据无法直接对接下游。
+中间 - 必要的“量化桥梁” (The Quantification Bridge)：
+画面中央是一个极具设计感的**“特征工程转化器”**装置或图标。
+它表现为一个金色的漏斗或透镜造型。左侧混乱的线条进入漏斗，经过内部的网格整理，被重塑为整齐的形态。
+装置上方有微发光的蓝色文字标题：“特征量化与结构化萃取”。
+视觉上强调“清洗”和“秩序化”的过程，金色的光流代表价值的提炼。
+右侧前景 - 业务端的“赋能与落地” (The Business Value)：
+从中间装置输出的，不再是乱麻，而是排列整齐的模块化积木或清晰的条形数据柱（代表结构化变量）。
+这些整齐的数据块正顺畅地嵌入一个盾牌形状的风控模型中。
+盾牌散发着安心的蓝色光芒，内部有一个简单的复选框（Checkmark），象征模型可以理解并处理这些数据。
+下方标注中文小字：“可解释结构化变量（业务/模型可用）”。
+整体传递出清晰、可读、立即可用的感觉。
+总结：
+整幅画面通过“左侧的混乱复杂”与“右侧的秩序清晰”形成强烈对比，中间的“转化器”作为视觉焦点，有力地论证了：原始声纹数据虽然高深，但只有经过量化萃取，变成结构化变量，才能跨越技术与业务的鸿沟，真正被风控模型所用。
+</example>

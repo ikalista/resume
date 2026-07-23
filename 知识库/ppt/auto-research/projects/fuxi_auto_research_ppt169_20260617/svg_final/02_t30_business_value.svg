@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0" />
+      <stop offset="100%" stop-color="#00A884" />
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1565C0" />
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#00A884" />
+    </marker>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#F7FAFC" />
+    <rect x="0" y="0" width="1280" height="116" fill="#FFFFFF" />
+    <rect x="48" y="104" width="1184" height="1" fill="#D8E1EA" />
+  </g>
+
+  <g id="header">
+    <path fill="url(#titleGradient)" d="M52,38 H52 A4,4 0 0 1 56,42 V78 A4,4 0 0 1 52,82 H52 A4,4 0 0 1 48,78 V42 A4,4 0 0 1 52,38 Z" />
+    <text x="70" y="63" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="36" font-weight="700" fill="#0B1F33">外诉 T30 场景：更准识别风险，更快支撑精细化处置</text>
+    <text x="70" y="92" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="18" fill="#6B7280">AUC 提升带来更可靠的人群分层，高风险补钱降外诉，低风险降本控成本</text>
+  </g>
+
+  <g id="business-loop">
+    <path fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2" d="M56,136 H1224 A8,8 0 0 1 1232,144 V312 A8,8 0 0 1 1224,320 H56 A8,8 0 0 1 48,312 V144 A8,8 0 0 1 56,136 Z" />
+    <text x="74" y="166" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="700" fill="#1565C0">通话后实时预测闭环</text>
+
+    <g id="loop-step-call">
+      <path fill="#E8F2FF" stroke="#1565C0" stroke-width="1.4" d="M82,194 H234 A8,8 0 0 1 242,202 V264 A8,8 0 0 1 234,272 H82 A8,8 0 0 1 74,264 V202 A8,8 0 0 1 82,194 Z" />
+      
+  <g transform="translate(94.0, 216.0) scale(0.125)" fill="#1565C0">
+    <path d="M223.94,174.08A48.33,48.33,0,0,1,176,216,136,136,0,0,1,40,80,48.33,48.33,0,0,1,81.92,32.06a8,8,0,0,1,8.3,4.8l21.13,47.2a8,8,0,0,1-.66,7.53L89.32,117a7.93,7.93,0,0,0-.54,7.81c8.27,16.93,25.77,34.22,42.75,42.41a7.92,7.92,0,0,0,7.83-.59l25-21.3a8,8,0,0,1,7.59-.69l47.16,21.13A8,8,0,0,1,223.94,174.08Z" opacity="0.2" />
+    <path d="M152.27,37.93a8,8,0,0,1,9.8-5.66,86.22,86.22,0,0,1,61.66,61.66,8,8,0,0,1-5.66,9.8A8.23,8.23,0,0,1,216,104a8,8,0,0,1-7.73-5.94,70.35,70.35,0,0,0-50.33-50.33A8,8,0,0,1,152.27,37.93Zm-2.33,41.8c13.79,3.68,22.65,12.54,26.33,26.33A8,8,0,0,0,184,112a8.23,8.23,0,0,0,2.07-.27,8,8,0,0,0,5.66-9.8c-5.12-19.16-18.5-32.54-37.66-37.66a8,8,0,1,0-4.13,15.46Zm81.94,95.35A56.26,56.26,0,0,1,176,224C96.6,224,32,159.4,32,80A56.26,56.26,0,0,1,80.92,24.12a16,16,0,0,1,16.62,9.52l21.12,47.15,0,.12A16,16,0,0,1,117.39,96c-.18.27-.37.52-.57.77L96,121.45c7.49,15.22,23.41,31,38.83,38.51l24.34-20.71a8.12,8.12,0,0,1,.75-.56,16,16,0,0,1,15.17-1.4l.13.06,47.11,21.11A16,16,0,0,1,231.88,175.08Zm-15.88-2s-.07,0-.11,0h0l-47-21.05-24.35,20.71a8.44,8.44,0,0,1-.74.56,16,16,0,0,1-15.75,1.14c-18.73-9.05-37.4-27.58-46.46-46.11a16,16,0,0,1,1-15.7,6.13,6.13,0,0,1,.57-.77L104,87.15l-21-47a.61.61,0,0,1,0-.12A40.2,40.2,0,0,0,48,80,128.14,128.14,0,0,0,176,208,40.21,40.21,0,0,0,216,173.07Z" />
+  </g>
+      <text x="140" y="225" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#0B1F33">通话结束</text>
+      <text x="140" y="249" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">实时触发预测</text>
+    </g>
+
+    <g id="loop-step-risk">
+      <path fill="#FDECEC" stroke="#E55353" stroke-width="1.4" d="M308,194 H460 A8,8 0 0 1 468,202 V264 A8,8 0 0 1 460,272 H308 A8,8 0 0 1 300,264 V202 A8,8 0 0 1 308,194 Z" />
+      
+  <g transform="translate(320.0, 216.0) scale(0.125)" fill="#E55353">
+    <path d="M216,56v58.77c0,84.18-71.31,112.07-85.54,116.8a7.54,7.54,0,0,1-4.92,0C111.31,226.86,40,199,40,114.79V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z" opacity="0.2" />
+    <path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.62,75.82,119.34,91,124.38a15.44,15.44,0,0,0,10,0c15.2-5.05,91-34.77,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.34,104.62-80,109.18-13.53-4.5-80-30.68-80-109.18V56l160,0ZM120,136V96a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm-4,36a12,12,0,1,1,12,12A12,12,0,0,1,116,172Z" />
+  </g>
+      <text x="366" y="225" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#0B1F33">识别外诉风险</text>
+      <text x="366" y="249" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">T30 是否外诉</text>
+    </g>
+
+    <g id="loop-step-high">
+      <path fill="#FDECEC" stroke="#E55353" stroke-width="1.2" d="M534,178 H708 A8,8 0 0 1 716,186 V232 A8,8 0 0 1 708,240 H534 A8,8 0 0 1 526,232 V186 A8,8 0 0 1 534,178 Z" />
+      
+  <g transform="translate(548.0, 194.0) scale(0.109375)" fill="#E55353">
+    <path d="M192,64v56H64V64Z" opacity="0.2" />
+    <path d="M56,64a8,8,0,0,1,8-8H192a8,8,0,0,1,0,16H64A8,8,0,0,1,56,64ZM216,168a8,8,0,0,0-8,8v16H176a16,16,0,0,1-16-16V128h48a8,8,0,0,0,0-16H48a8,8,0,0,0,0,16H96v8a56.06,56.06,0,0,1-56,56,8,8,0,0,0,0,16,72.08,72.08,0,0,0,72-72v-8h32v48a32,32,0,0,0,32,32h40a8,8,0,0,0,8-8V176A8,8,0,0,0,216,168Z" />
+  </g>
+      <text x="590" y="204" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F33">高风险人群</text>
+      <text x="590" y="226" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">补钱 / 强化安抚</text>
+    </g>
+
+    <g id="loop-step-low">
+      <path fill="#E8F8F2" stroke="#00A884" stroke-width="1.2" d="M534,254 H708 A8,8 0 0 1 716,262 V288 A8,8 0 0 1 708,296 H534 A8,8 0 0 1 526,288 V262 A8,8 0 0 1 534,254 Z" />
+      <text x="548" y="280" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F33">低风险人群</text>
+      <text x="654" y="280" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">标准处置 / 降本</text>
+    </g>
+
+    <g id="loop-step-result">
+      <path fill="#E8F8F2" stroke="#00A884" stroke-width="1.4" d="M818,194 H992 A8,8 0 0 1 1000,202 V264 A8,8 0 0 1 992,272 H818 A8,8 0 0 1 810,264 V202 A8,8 0 0 1 818,194 Z" />
+      
+  <g transform="translate(832.0, 216.0) scale(0.125)" fill="#00A884">
+    <path d="M232,56v64L168,56Z" opacity="0.2" />
+    <path d="M232,48H168a8,8,0,0,0-5.66,13.66L188.69,88,136,140.69l-34.34-34.35a8,8,0,0,0-11.32,0l-72,72a8,8,0,0,0,11.32,11.32L96,123.31l34.34,34.35a8,8,0,0,0,11.32,0L200,99.31l26.34,26.35A8,8,0,0,0,240,120V56A8,8,0,0,0,232,48Zm-8,52.69L187.31,64H224Z" />
+  </g>
+      <text x="878" y="225" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#0B1F33">更准风险分层</text>
+      <text x="878" y="249" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">AUC 0.756 支撑策略</text>
+    </g>
+
+    <g id="loop-step-goal">
+      <path fill="#0B1F33" d="M1068,194 H1198 A8,8 0 0 1 1206,202 V264 A8,8 0 0 1 1198,272 H1068 A8,8 0 0 1 1060,264 V202 A8,8 0 0 1 1068,194 Z" />
+      <text x="1133" y="226" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">降低外诉率</text>
+      <text x="1133" y="250" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#D8E1EA" text-anchor="middle">同时控制补贴成本</text>
+    </g>
+
+    <line x1="242" y1="233" x2="294" y2="233" stroke="#1565C0" stroke-width="3" marker-end="url(#arrowBlue)" />
+    <line x1="468" y1="233" x2="520" y2="209" stroke="#E55353" stroke-width="3" marker-end="url(#arrowBlue)" />
+    <line x1="468" y1="233" x2="520" y2="274" stroke="#00A884" stroke-width="3" marker-end="url(#arrowGreen)" />
+    <line x1="716" y1="209" x2="804" y2="222" stroke="#E55353" stroke-width="3" marker-end="url(#arrowBlue)" />
+    <line x1="716" y1="276" x2="804" y2="244" stroke="#00A884" stroke-width="3" marker-end="url(#arrowGreen)" />
+    <line x1="1000" y1="233" x2="1054" y2="233" stroke="#00A884" stroke-width="3" marker-end="url(#arrowGreen)" />
+  </g>
+
+  <g id="chartArea">
+    <path fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2" d="M56,348 H812 A8,8 0 0 1 820,356 V636 A8,8 0 0 1 812,644 H56 A8,8 0 0 1 48,636 V356 A8,8 0 0 1 56,348 Z" />
+    <text x="74" y="378" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="700" fill="#1565C0">建模周期对比：传统流程 vs 伏羲 Auto-Research</text>
+    
+
+    <g id="x-axis">
+      <line x1="244" y1="578" x2="724" y2="578" stroke="#D8E1EA" stroke-width="1" />
+      <line x1="244" y1="418" x2="244" y2="578" stroke="#D8E1EA" stroke-width="1" />
+      <line x1="484" y1="418" x2="484" y2="578" stroke="#D8E1EA" stroke-width="1" stroke-dasharray="4,4" />
+      <line x1="724" y1="418" x2="724" y2="578" stroke="#D8E1EA" stroke-width="1" />
+      <text x="244" y="606" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">0 天</text>
+      <text x="484" y="606" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">5 天</text>
+      <text x="724" y="606" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">10 天</text>
+    </g>
+
+    <g id="row-data">
+      <text x="216" y="427" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F33" text-anchor="end">数据准备</text>
+      <line x1="724" y1="422" x2="724" y2="422" stroke="#D8E1EA" stroke-width="3" />
+      <circle cx="724" cy="422" r="8" fill="#1565C0" />
+      <circle cx="724" cy="422" r="8" fill="#00A884" />
+      <text x="746" y="427" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#6B7280">10 天持平</text>
+    </g>
+
+    <g id="row-feature">
+      <text x="216" y="503" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F33" text-anchor="end">特征工程</text>
+      <line x1="292" y1="498" x2="340" y2="498" stroke="#D8E1EA" stroke-width="3" />
+      <circle cx="340" cy="498" r="8" fill="#1565C0" />
+      <circle cx="292" cy="498" r="8" fill="#00A884" />
+      <text x="362" y="503" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#6B7280">2 → 1 天</text>
+      <text x="430" y="503" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" font-weight="700" fill="#00A884">压缩 50%</text>
+    </g>
+
+    <g id="row-model">
+      <text x="216" y="569" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="700" fill="#0B1F33" text-anchor="end">模型工程</text>
+      <line x1="292" y1="564" x2="340" y2="564" stroke="#D8E1EA" stroke-width="3" />
+      <circle cx="340" cy="564" r="8" fill="#1565C0" />
+      <circle cx="292" cy="564" r="8" fill="#00A884" />
+      <text x="362" y="569" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#6B7280">2 → 1 天</text>
+      <text x="430" y="569" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" font-weight="700" fill="#00A884">压缩 50%</text>
+    </g>
+
+    <g id="legend">
+      <circle cx="610" cy="378" r="6" fill="#1565C0" />
+      <text x="624" y="383" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">传统</text>
+      <circle cx="676" cy="378" r="6" fill="#00A884" />
+      <text x="690" y="383" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">伏羲</text>
+    </g>
+  </g>
+
+  <g id="kpi-panel">
+    <path fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2" d="M854,348 H1224 A8,8 0 0 1 1232,356 V636 A8,8 0 0 1 1224,644 H854 A8,8 0 0 1 846,636 V356 A8,8 0 0 1 854,348 Z" />
+    <text x="872" y="378" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="700" fill="#1565C0">业务收益与验证</text>
+
+    <g id="kpi-total">
+      <path fill="#E8F8F2" d="M880,404 H1018 A8,8 0 0 1 1026,412 V500 A8,8 0 0 1 1018,508 H880 A8,8 0 0 1 872,500 V412 A8,8 0 0 1 880,404 Z" />
+      <text x="949" y="448" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="52" font-weight="700" fill="#00A884" text-anchor="middle">2</text>
+      <text x="949" y="478" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#0B1F33" text-anchor="middle">整体节省天数</text>
+    </g>
+
+    <g id="kpi-stage">
+      <path fill="#E8F2FF" d="M1058,404 H1196 A8,8 0 0 1 1204,412 V500 A8,8 0 0 1 1196,508 H1058 A8,8 0 0 1 1050,500 V412 A8,8 0 0 1 1058,404 Z" />
+      <text x="1127" y="448" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="52" font-weight="700" fill="#1565C0" text-anchor="middle">50%</text>
+      <text x="1127" y="478" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#0B1F33" text-anchor="middle">特征 / 模型压缩</text>
+    </g>
+
+    <g id="kpi-explain">
+      <path fill="#0B1F33" d="M880,532 H1196 A8,8 0 0 1 1204,540 V598 A8,8 0 0 1 1196,606 H880 A8,8 0 0 1 872,598 V540 A8,8 0 0 1 880,532 Z" />
+      <text x="896" y="560" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">模型工程师验证有效</text>
+      <text font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#D8E1EA" x="896" y="586">自动发现的参数、样本比例和防过拟合策略</text><text font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#D8E1EA" x="896" y="608">已被人工复核，可落入外诉风险分层流程。</text></g>
+  </g>
+
+  <g id="footer">
+    <text x="48" y="704" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280">Source: 内部业务场景说明；AUC 与建模策略已经模型工程师验证；周期口径为估算</text>
+    <text x="1232" y="704" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="end">02 / 03</text>
+  </g>
+</svg>

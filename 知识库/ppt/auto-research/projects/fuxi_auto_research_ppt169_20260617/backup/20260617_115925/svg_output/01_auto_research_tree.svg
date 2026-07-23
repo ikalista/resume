@@ -1,0 +1,87 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#00A884"/>
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1565C0"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#00A884"/>
+    </marker>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#F7FAFC"/>
+    <rect x="0" y="0" width="1280" height="116" fill="#FFFFFF"/>
+    <rect x="48" y="104" width="1184" height="1" fill="#D8E1EA"/>
+  </g>
+
+  <g id="header">
+    <rect x="48" y="38" width="8" height="44" rx="4" fill="url(#titleGradient)"/>
+    <text x="70" y="63" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="34" font-weight="700" fill="#0B1F33">伏羲 Auto-Research：自动发现有效建模策略，AUC 提升至 0.756</text>
+    <text x="70" y="92" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" fill="#6B7280">从人工建模 0.745 提升到 0.756，关键增益来自对 LGBM 参数、样本比例和过拟合的自动洞察</text>
+  </g>
+
+  <g id="screenshot-evidence">
+    <rect x="48" y="138" width="700" height="426" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2"/>
+    <text x="74" y="168" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="700" fill="#1565C0">真实搜索过程截图</text>
+    <rect x="74" y="186" width="648" height="356" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1"/>
+    <image href="../images/伏羲-autoresearch截图.png" x="78" y="190" width="640" height="351" preserveAspectRatio="xMidYMid meet"/>
+    <g id="auc-improvement">
+      <rect x="74" y="574" width="648" height="34" rx="8" fill="#E8F8F2" stroke="#00A884" stroke-width="1"/>
+      <text x="94" y="596" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="15" font-weight="700" fill="#0B1F33">人工建模 AUC 0.745</text>
+      <line x1="248" y1="590" x2="318" y2="590" stroke="#00A884" stroke-width="3" marker-end="url(#arrowGreen)"/>
+      <text x="342" y="596" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="15" font-weight="700" fill="#00A884">Auto-Research AUC 0.756</text>
+      <text x="610" y="596" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#6B7280" text-anchor="end">+0.011</text>
+    </g>
+  </g>
+
+  <g id="chartArea">
+    <rect x="780" y="138" width="452" height="426" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2"/>
+    <text x="806" y="168" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="700" fill="#1565C0">自动发现的有效建模策略</text>
+    <!-- chart-plot-area: 806,190,1208,520 -->
+
+    <g id="insight-goss">
+      <rect x="806" y="194" width="402" height="78" rx="8" fill="#E8F2FF" stroke="#1565C0" stroke-width="1.4"/>
+      <use data-icon="phosphor-duotone/tree-structure" x="826" y="217" width="30" height="30" fill="#1565C0"/>
+      <text x="870" y="220" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33">更深的 LGBM 参数洞察</text>
+      <text x="870" y="246" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#6B7280">自动发现当前任务更适合使用 GOSS loss</text>
+    </g>
+
+    <g id="insight-sample-ratio">
+      <rect x="806" y="288" width="402" height="78" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.4"/>
+      <use data-icon="phosphor-duotone/database" x="826" y="311" width="30" height="30" fill="#1565C0"/>
+      <text x="870" y="314" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33">敲定并缓解正负样本比例影响</text>
+      <text x="870" y="340" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#6B7280">识别样本结构对 y 的影响，并自动调整建模策略</text>
+    </g>
+
+    <g id="insight-overfit">
+      <rect x="806" y="382" width="402" height="78" rx="8" fill="#E8F8F2" stroke="#00A884" stroke-width="1.4"/>
+      <use data-icon="phosphor-duotone/target" x="826" y="405" width="30" height="30" fill="#00A884"/>
+      <text x="870" y="408" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33">主动发现过拟合并降低模型复杂度</text>
+      <text x="870" y="434" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#6B7280">自动下调参数强度，让泛化表现优于人工方案</text>
+    </g>
+
+    <g id="validated-result">
+      <rect x="806" y="486" width="402" height="50" rx="8" fill="#0B1F33"/>
+      <use data-icon="phosphor-duotone/chart-line-up" x="826" y="499" width="24" height="24" fill="#00A884"/>
+      <text x="864" y="507" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="15" font-weight="700" fill="#FFFFFF">自动化完成，且经模型工程师验证有效</text>
+      <text x="864" y="527" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#D8E1EA">不是“碰巧提升”，而是可解释、可复核的建模策略增益</text>
+    </g>
+  </g>
+
+  <g id="bottom-takeaway">
+    <rect x="48" y="624" width="1184" height="54" rx="8" fill="#0B1F33"/>
+    <text x="78" y="657" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="19" font-weight="700" fill="#FFFFFF">
+      Auto-Research 不只给出更高 AUC，
+      <tspan fill="#00A884">还自动沉淀了 GOSS loss、样本比例处理、过拟合抑制等有效工程策略</tspan>
+    </text>
+  </g>
+
+  <g id="footer">
+    <text x="48" y="704" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">Source: 伏羲 Auto-Research 产品截图；内部业务场景说明</text>
+    <text x="1232" y="704" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280" text-anchor="end">01 / 03</text>
+  </g>
+</svg>

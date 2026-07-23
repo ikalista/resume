@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匈牙利算法建模</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .formula {
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+        }
+        .highlight {
+            color: #f97316;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="slide bg-gradient-to-br from-gray-900 to-blue-900 text-white p-10">
+<!-- Header -->
+<div class="mb-6">
+<h1 class="text-3xl font-bold text-white flex items-center">
+<i class="fas fa-project-diagram text-orange-500 mr-3"></i>
+                匈牙利算法建模
+            </h1>
+<div class="w-20 h-1 bg-orange-500 mt-2"></div>
+</div>
+<!-- Main Content -->
+<div class="grid grid-cols-2 gap-8 h-[520px]">
+<!-- Left Column: Mathematical Model -->
+<div class="bg-blue-900 bg-opacity-40 rounded-lg p-6 border border-blue-800 overflow-auto">
+<h2 class="text-xl font-semibold text-blue-200 mb-4 flex items-center">
+<i class="fas fa-square-root-alt text-orange-400 mr-2"></i>
+                    数学模型
+                </h2>
+<div class="mb-6">
+<p class="text-sm text-blue-100 mb-2">匈牙利算法解决的是二分图最大匹配问题，其核心数学模型如下：</p>
+<div class="bg-blue-800 bg-opacity-40 p-4 rounded-md my-3">
+<p class="formula text-center text-lg">
+<span class="highlight">max</span> ∑<sub>e∈E</sub> w(e) · x(e)
+                        </p>
+<div class="border-t border-blue-700 my-2"></div>
+<p class="formula text-center text-md">
+                            s.t. ∑<sub>e∈δ(v)</sub> x(e) ≤ 1, ∀v∈V
+                        </p>
+<p class="formula text-center text-md mt-1">
+                            x(e) ∈ {0, 1}, ∀e∈E
+                        </p>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-medium text-blue-200 mb-2">模型解释：</h3>
+<ul class="list-disc list-inside text-blue-100 space-y-2 ml-2">
+<li><span class="text-orange-300">V</span>: 顶点集合，分为两个不相交的子集</li>
+<li><span class="text-orange-300">E</span>: 边集合，连接两个子集中的顶点</li>
+<li><span class="text-orange-300">x(e)</span>: 决策变量，表示边e是否被选择</li>
+<li><span class="text-orange-300">w(e)</span>: 边权重，在资配场景中为通过率</li>
+<li><span class="text-orange-300">δ(v)</span>: 与顶点v相连的边的集合</li>
+</ul>
+</div>
+</div>
+<!-- Right Column: Constraints and Analysis -->
+<div class="flex flex-col gap-6">
+<!-- Constraints Section -->
+<div class="bg-blue-900 bg-opacity-40 rounded-lg p-6 border border-blue-800">
+<h2 class="text-xl font-semibold text-blue-200 mb-4 flex items-center">
+<i class="fas fa-balance-scale text-orange-400 mr-2"></i>
+                        约束条件
+                    </h2>
+<div class="space-y-3">
+<div class="bg-blue-800 bg-opacity-30 p-3 rounded-md">
+<p class="formula text-md">
+<span class="highlight">资金容量约束:</span> 
+                                ∑<sub>j∈O</sub> x(i,j) · A(j) ≤ C(i), ∀i∈F
+                            </p>
+</div>
+<div class="bg-blue-800 bg-opacity-30 p-3 rounded-md">
+<p class="formula text-md">
+<span class="highlight">订单匹配约束:</span> 
+                                ∑<sub>i∈F</sub> x(i,j) ≤ 1, ∀j∈O
+                            </p>
+</div>
+<div class="bg-blue-800 bg-opacity-30 p-3 rounded-md">
+<p class="formula text-md">
+<span class="highlight">二分图结构约束:</span> 
+                                x(i,j) ∈ {0, 1}, ∀i∈F, j∈O
+                            </p>
+</div>
+</div>
+</div>
+<!-- Pros and Cons Section -->
+<div class="bg-blue-900 bg-opacity-40 rounded-lg p-6 border border-blue-800">
+<h2 class="text-xl font-semibold text-blue-200 mb-4 flex items-center">
+<i class="fas fa-chart-line text-orange-400 mr-2"></i>
+                        资配场景应用分析
+                    </h2>
+<div class="grid grid-cols-2 gap-4">
+<!-- Pros -->
+<div class="bg-green-900 bg-opacity-20 p-4 rounded-md border border-green-800">
+<h3 class="text-lg font-medium text-green-300 mb-2 flex items-center">
+<i class="fas fa-plus-circle text-green-400 mr-2"></i>
+                                优势
+                            </h3>
+<ul class="list-disc list-inside text-blue-100 space-y-1 ml-2 text-sm">
+<li>理论保证全局最优解</li>
+<li>结构简单，实现高效</li>
+<li>适合解决二分图匹配问题</li>
+<li>可扩展到加权匹配问题</li>
+</ul>
+</div>
+<!-- Cons -->
+<div class="bg-red-900 bg-opacity-20 p-4 rounded-md border border-red-800">
+<h3 class="text-lg font-medium text-red-300 mb-2 flex items-center">
+<i class="fas fa-minus-circle text-red-400 mr-2"></i>
+                                挑战
+                            </h3>
+<ul class="list-disc list-inside text-blue-100 space-y-1 ml-2 text-sm">
+<li>边存在性预测困难</li>
+<li>无法直接处理权重（通过率）</li>
+<li>计算复杂度较高</li>
+<li>难以适应动态变化的场景</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="absolute bottom-4 right-6 text-sm text-blue-300 opacity-80">
+<p>资配订单智能匹配优化方案 · 第4页</p>
+</div>
+</div>
+
+</body></html>

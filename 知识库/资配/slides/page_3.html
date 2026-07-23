@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>变量与目标</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .formula {
+            font-family: "Times New Roman", Times, serif;
+        }
+        .variable-card {
+            transition: all 0.3s ease;
+        }
+        .variable-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .objective-item {
+            transition: all 0.3s ease;
+        }
+        .objective-item:hover {
+            transform: scale(1.03);
+        }
+        .network-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body>
+<div class="slide bg-gradient-to-br from-gray-900 to-blue-900 relative">
+<!-- Abstract network background -->
+<div class="network-bg" id="network"></div>
+<!-- Header -->
+<div class="relative z-10 px-16 pt-10">
+<div class="flex items-center">
+<div class="w-2 h-10 bg-orange-500 mr-4"></div>
+<h1 class="text-4xl font-bold text-white">变量与目标</h1>
+</div>
+<div class="w-32 h-1 bg-orange-500 mt-2"></div>
+</div>
+<!-- Main Content -->
+<div class="relative z-10 px-16 py-8 grid grid-cols-12 gap-6">
+<!-- Variables Section -->
+<div class="col-span-7 bg-blue-900 bg-opacity-40 rounded-xl p-6 border border-blue-800">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center mr-3">
+<i class="fas fa-cube text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold text-blue-200">核心变量</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Variable 1 -->
+<div class="variable-card bg-blue-800 bg-opacity-50 rounded-lg p-4 border border-blue-700">
+<div class="flex items-center mb-2">
+<i class="fas fa-building text-orange-400 mr-2"></i>
+<h3 class="text-xl font-medium text-blue-100">资方集合 (F)</h3>
+</div>
+<p class="text-blue-200 text-sm">提供资金的主体集合</p>
+<div class="mt-2 text-white formula">
+                            F = {f₁, f₂, ..., fₙ}
+                        </div>
+</div>
+<!-- Variable 2 -->
+<div class="variable-card bg-blue-800 bg-opacity-50 rounded-lg p-4 border border-blue-700">
+<div class="flex items-center mb-2">
+<i class="fas fa-file-invoice-dollar text-orange-400 mr-2"></i>
+<h3 class="text-xl font-medium text-blue-100">订单集合 (O)</h3>
+</div>
+<p class="text-blue-200 text-sm">需要资金的借款申请集合</p>
+<div class="mt-2 text-white formula">
+                            O = {o₁, o₂, ..., oₘ}
+                        </div>
+</div>
+<!-- Variable 3 -->
+<div class="variable-card bg-blue-800 bg-opacity-50 rounded-lg p-4 border border-blue-700">
+<div class="flex items-center mb-2">
+<i class="fas fa-money-bill-wave text-orange-400 mr-2"></i>
+<h3 class="text-xl font-medium text-blue-100">订单金额 (A)</h3>
+</div>
+<p class="text-blue-200 text-sm">每笔订单的申请金额</p>
+<div class="mt-2 text-white formula">
+                            A: O → ℝ⁺
+                        </div>
+</div>
+<!-- Variable 4 -->
+<div class="variable-card bg-blue-800 bg-opacity-50 rounded-lg p-4 border border-blue-700">
+<div class="flex items-center mb-2">
+<i class="fas fa-wallet text-orange-400 mr-2"></i>
+<h3 class="text-xl font-medium text-blue-100">资金容量 (C)</h3>
+</div>
+<p class="text-blue-200 text-sm">每个资方的可用额度</p>
+<div class="mt-2 text-white formula">
+                            C: F → ℝ⁺
+                        </div>
+</div>
+<!-- Variable 5 -->
+<div class="variable-card bg-blue-800 bg-opacity-50 rounded-lg p-4 border border-blue-700 col-span-2">
+<div class="flex items-center mb-2">
+<i class="fas fa-percentage text-orange-400 mr-2"></i>
+<h3 class="text-xl font-medium text-blue-100">通过率 (P)</h3>
+</div>
+<p class="text-blue-200 text-sm">订单与资方匹配后的成功概率</p>
+<div class="mt-2 text-white formula">
+                            P: O × F → [0, 1]
+                        </div>
+</div>
+</div>
+</div>
+<!-- Objectives Section -->
+<div class="col-span-5 bg-blue-900 bg-opacity-40 rounded-xl p-6 border border-blue-800">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center mr-3">
+<i class="fas fa-bullseye text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold text-blue-200">优化目标</h2>
+</div>
+<p class="text-blue-200 mb-4">多目标优化函数：</p>
+<div class="bg-blue-800 bg-opacity-50 rounded-lg p-5 border border-blue-700">
+<div class="text-white formula text-center text-xl mb-4">
+                        max<sub>F, O</sub> ∑<sub>f∈F, o∈O</sub> P(f, o) · A(o) · x(f, o)
+                    </div>
+<div class="grid grid-cols-1 gap-4 mt-6">
+<!-- Objective 1 -->
+<div class="objective-item bg-blue-700 bg-opacity-40 rounded-lg p-3 border border-blue-600">
+<div class="flex items-center">
+<i class="fas fa-chart-line text-orange-400 mr-2"></i>
+<div>
+<h4 class="text-lg font-medium text-blue-100">资金利用率最大化</h4>
+<p class="text-blue-300 text-sm">提高资方可用资金的使用比例</p>
+</div>
+</div>
+</div>
+<!-- Objective 2 -->
+<div class="objective-item bg-blue-700 bg-opacity-40 rounded-lg p-3 border border-blue-600">
+<div class="flex items-center">
+<i class="fas fa-check-circle text-orange-400 mr-2"></i>
+<div>
+<h4 class="text-lg font-medium text-blue-100">通过率最大化</h4>
+<p class="text-blue-300 text-sm">提高订单匹配后的成功率</p>
+</div>
+</div>
+</div>
+<!-- Objective 3 -->
+<div class="objective-item bg-blue-700 bg-opacity-40 rounded-lg p-3 border border-blue-600">
+<div class="flex items-center">
+<i class="fas fa-coins text-orange-400 mr-2"></i>
+<div>
+<h4 class="text-lg font-medium text-blue-100">盈利金额最大化</h4>
+<p class="text-blue-300 text-sm">提高成功匹配带来的总利润</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="absolute bottom-6 right-10 text-blue-300 text-sm">
+<p>资配订单智能匹配优化方案 | 第3页</p>
+</div>
+</div>
+<script>
+        // Create network visualization
+        const network = document.getElementById('network');
+        const width = 1280;
+        const height = 720;
+        
+        // Create SVG
+        const svg = d3.select("#network")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+        
+        // Create nodes
+        const numNodes = 30;
+        const nodes = Array.from({length: numNodes}, (_, i) => ({
+            id: i,
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: 3 + Math.random() * 3,
+            color: i < numNodes/2 ? 
+                `rgba(249, 115, 22, ${0.3 + Math.random() * 0.4})` : 
+                `rgba(59, 130, 246, ${0.3 + Math.random() * 0.4})`
+        }));
+        
+        // Create links between nodes
+        const links = [];
+        for (let i = 0; i < numNodes; i++) {
+            // Connect nodes between different groups
+            const start = i < numNodes/2 ? 0 : numNodes/2;
+            const end = i < numNodes/2 ? numNodes/2 : numNodes;
+            
+            for (let j = start; j < end; j++) {
+                if (Math.random() < 0.1) {
+                    links.push({
+                        source: i,
+                        target: j
+                    });
+                }
+            }
+        }
+        
+        // Draw links
+        svg.selectAll("line")
+            .data(links)
+            .enter()
+            .append("line")
+            .attr("x1", d => nodes[d.source].x)
+            .attr("y1", d => nodes[d.source].y)
+            .attr("x2", d => nodes[d.target].x)
+            .attr("y2", d => nodes[d.target].y)
+            .attr("stroke", "rgba(255, 255, 255, 0.1)")
+            .attr("stroke-width", 1);
+        
+        // Draw nodes
+        svg.selectAll("circle")
+            .data(nodes)
+            .enter()
+            .append("circle")
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", d => d.r)
+            .attr("fill", d => d.color);
+    </script>
+
+</body></html>

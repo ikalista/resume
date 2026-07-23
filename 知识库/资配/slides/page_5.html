@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KM算法建模</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .formula {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+        .highlight {
+            color: #f97316;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="slide bg-gradient-to-br from-gray-900 to-blue-900 text-white p-10">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold text-center mb-2">KM算法建模</h1>
+<div class="w-32 h-1 bg-orange-500 mx-auto"></div>
+</div>
+<div class="grid grid-cols-2 gap-8 h-[560px]">
+<!-- Left Column: Mathematical Model -->
+<div class="bg-blue-800 bg-opacity-30 rounded-xl p-6 border border-blue-700">
+<h2 class="text-2xl font-semibold mb-4 flex items-center">
+<i class="fas fa-square-root-alt text-orange-500 mr-3"></i>
+                    数学模型
+                </h2>
+<div class="mb-6">
+<p class="text-lg mb-2">最大化目标函数：</p>
+<div class="formula text-xl text-center py-3">
+                        max <span class="highlight">Σ Σ w<sub>ij</sub> × x<sub>ij</sub></span>
+</div>
+</div>
+<div class="mb-6">
+<p class="text-lg mb-2">约束条件：</p>
+<ul class="space-y-3">
+<li class="formula text-lg">
+<span class="highlight">Σ x<sub>ij</sub> ≤ 1</span> (每个订单只能匹配一个资方)
+                        </li>
+<li class="formula text-lg">
+<span class="highlight">Σ x<sub>ij</sub> ≤ c<sub>j</sub></span> (资方容量限制)
+                        </li>
+<li class="formula text-lg">
+<span class="highlight">x<sub>ij</sub> ∈ {0, 1}</span> (二值决策变量)
+                        </li>
+</ul>
+</div>
+<div class="mb-4">
+<p class="text-lg mb-2">变量说明：</p>
+<ul class="space-y-2 text-blue-200">
+<li><span class="text-white">w<sub>ij</sub></span>: 订单i与资方j的通过率</li>
+<li><span class="text-white">x<sub>ij</sub></span>: 匹配决策变量</li>
+<li><span class="text-white">c<sub>j</sub></span>: 资方j的资金容量</li>
+</ul>
+</div>
+</div>
+<!-- Right Column: Implementation Path -->
+<div class="flex flex-col space-y-6">
+<!-- KM Algorithm Visualization -->
+<div class="bg-blue-800 bg-opacity-30 rounded-xl p-4 border border-blue-700 h-64">
+<h2 class="text-xl font-semibold mb-3 flex items-center">
+<i class="fas fa-project-diagram text-orange-500 mr-3"></i>
+                        KM算法图示
+                    </h2>
+<div class="w-full h-48" id="km-viz"></div>
+</div>
+<!-- Implementation Steps -->
+<div class="bg-blue-800 bg-opacity-30 rounded-xl p-6 border border-blue-700 flex-grow">
+<h2 class="text-xl font-semibold mb-4 flex items-center">
+<i class="fas fa-cogs text-orange-500 mr-3"></i>
+                        聚类与通过率估计实现最优匹配
+                    </h2>
+<div class="space-y-5">
+<div class="flex items-start">
+<div class="bg-orange-500 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+<span class="font-bold">1</span>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-blue-200">订单聚类</h3>
+<p class="text-blue-100">基于订单特征（金额、风险、行业等）将相似订单分组，确保有足够样本量使统计更稳定</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="bg-orange-500 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+<span class="font-bold">2</span>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-blue-200">通过率估计</h3>
+<p class="text-blue-100">在每个聚类中，统计历史数据，计算该类订单在各资方的平均通过率</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="bg-orange-500 rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+<span class="font-bold">3</span>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-blue-200">最优匹配</h3>
+<p class="text-blue-100">将估计的通过率作为权重，输入KM算法求解，找到全局最优匹配方案</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer with page number -->
+<div class="absolute bottom-4 right-6 text-blue-300 text-sm">
+            5 / 7
+        </div>
+</div>
+<script>
+        // D3.js visualization for KM Algorithm
+        document.addEventListener('DOMContentLoaded', function() {
+            const width = document.getElementById('km-viz').clientWidth;
+            const height = document.getElementById('km-viz').clientHeight;
+            
+            // Create SVG
+            const svg = d3.select('#km-viz')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height);
+            
+            // Define nodes (orders and fund sources)
+            const nodes = [
+                { id: 'o1', name: '订单A', type: 'order', x: width * 0.15, y: height * 0.25 },
+                { id: 'o2', name: '订单B', type: 'order', x: width * 0.15, y: height * 0.5 },
+                { id: 'o3', name: '订单C', type: 'order', x: width * 0.15, y: height * 0.75 },
+                { id: 'f1', name: '资方X', type: 'fund', x: width * 0.85, y: height * 0.2 },
+                { id: 'f2', name: '资方Y', type: 'fund', x: width * 0.85, y: height * 0.5 },
+                { id: 'f3', name: '资方Z', type: 'fund', x: width * 0.85, y: height * 0.8 }
+            ];
+            
+            // Define links with weights (pass rates)
+            const links = [
+                { source: 'o1', target: 'f1', weight: 0.8 },
+                { source: 'o1', target: 'f2', weight: 0.6 },
+                { source: 'o2', target: 'f1', weight: 0.7 },
+                { source: 'o2', target: 'f2', weight: 0.9 },
+                { source: 'o2', target: 'f3', weight: 0.5 },
+                { source: 'o3', target: 'f2', weight: 0.4 },
+                { source: 'o3', target: 'f3', weight: 0.8 }
+            ];
+            
+            // Draw links
+            svg.selectAll('line')
+                .data(links)
+                .enter()
+                .append('line')
+                .attr('x1', d => nodes.find(n => n.id === d.source).x)
+                .attr('y1', d => nodes.find(n => n.id === d.source).y)
+                .attr('x2', d => nodes.find(n => n.id === d.target).x)
+                .attr('y2', d => nodes.find(n => n.id === d.target).y)
+                .attr('stroke', d => d.weight > 0.6 ? '#f97316' : '#60a5fa')
+                .attr('stroke-width', d => d.weight * 3)
+                .attr('stroke-opacity', 0.6);
+            
+            // Draw nodes
+            const nodeGroups = svg.selectAll('g')
+                .data(nodes)
+                .enter()
+                .append('g')
+                .attr('transform', d => `translate(${d.x}, ${d.y})`);
+            
+            nodeGroups.append('circle')
+                .attr('r', 20)
+                .attr('fill', d => d.type === 'order' ? '#3b82f6' : '#f97316')
+                .attr('fill-opacity', 0.8)
+                .attr('stroke', '#fff')
+                .attr('stroke-width', 2);
+            
+            nodeGroups.append('text')
+                .text(d => d.name)
+                .attr('text-anchor', 'middle')
+                .attr('dy', 30)
+                .attr('fill', '#fff')
+                .attr('font-size', '12px');
+            
+            // Add labels to links showing weights
+            svg.selectAll('text.weight')
+                .data(links)
+                .enter()
+                .append('text')
+                .attr('class', 'weight')
+                .attr('x', d => (nodes.find(n => n.id === d.source).x + nodes.find(n => n.id === d.target).x) / 2)
+                .attr('y', d => (nodes.find(n => n.id === d.source).y + nodes.find(n => n.id === d.target).y) / 2)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#fff')
+                .attr('font-size', '10px')
+                .text(d => d.weight.toFixed(1));
+        });
+    </script>
+
+</body></html>

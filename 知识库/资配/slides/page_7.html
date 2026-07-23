@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>部署与验证</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .section-title {
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .card {
+            background-color: rgba(30, 58, 138, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            height: 100%;
+        }
+        .metric-formula {
+            font-family: 'Courier New', monospace;
+            background-color: rgba(30, 58, 138, 0.4);
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            display: inline-block;
+            margin-top: 0.25rem;
+        }
+        .flow-arrow {
+            position: relative;
+            height: 2px;
+            background-color: rgba(59, 130, 246, 0.7);
+            margin: 0 0.5rem;
+        }
+        .flow-arrow:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid rgba(59, 130, 246, 0.7);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+    </style>
+</head>
+<body>
+<div class="slide bg-gradient-to-br from-gray-900 to-blue-900 p-8 text-white">
+<!-- Header -->
+<div class="mb-6">
+<h1 class="text-3xl font-bold text-center mb-2">部署与验证</h1>
+<div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-3 gap-6 h-[520px]">
+<!-- Simulation System -->
+<div class="card">
+<div class="flex items-center mb-4">
+<i class="fas fa-server text-orange-500 text-2xl mr-3"></i>
+<h2 class="section-title text-xl">仿真系统设计</h2>
+</div>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start">
+<i class="fas fa-bullseye text-blue-400 mt-1 mr-2"></i>
+<span><span class="font-semibold">目的：</span>构建高保真离线环境，安全、低成本地对比不同算法</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-cogs text-blue-400 mt-1 mr-2"></i>
+<span><span class="font-semibold">核心功能：</span></span>
+</li>
+<ul class="ml-8 space-y-2 text-sm">
+<li class="flex items-start">
+<i class="fas fa-history text-blue-300 mt-1 mr-2"></i>
+<span><span class="font-semibold">历史回放：</span>基于历史数据（如6个月）重现订单流</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-random text-blue-300 mt-1 mr-2"></i>
+<span><span class="font-semibold">状态模拟：</span>模拟资方实时的资金、风控变化</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-vials text-blue-300 mt-1 mr-2"></i>
+<span><span class="font-semibold">并行测试：</span>同时运行新旧多种算法，进行效果对比</span>
+</li>
+</ul>
+<li class="flex items-start">
+<i class="fas fa-flask-vial text-blue-400 mt-1 mr-2"></i>
+<span><span class="font-semibold">对比方案：</span></span>
+</li>
+<ul class="ml-8 space-y-2 text-sm">
+<li class="flex items-start">
+<i class="fas fa-minus-circle text-blue-300 mt-1 mr-2"></i>
+<span><span class="font-semibold">基准：</span>现有规则/贪心算法</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-star-circle text-blue-300 mt-1 mr-2"></i>
+<span><span class="font-semibold">实验组1：</span>聚类 + KM算法</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-star-circle text-blue-300 mt-1 mr-2"></i>
+<span><span class="font-semibold">实验组2：</span>深度学习推荐模型</span>
+</li>
+</ul>
+</ul>
+</div>
+<!-- Evaluation Metrics -->
+<div class="card">
+<div class="flex items-center mb-4">
+<i class="fas fa-chart-line text-orange-500 text-2xl mr-3"></i>
+<h2 class="section-title text-xl">核心评估指标</h2>
+</div>
+<ul class="space-y-4">
+<li>
+<div class="flex items-center mb-1">
+<i class="fas fa-check-circle text-green-400 mr-2"></i>
+<span class="font-semibold">通过率</span>
+</div>
+<p class="text-sm ml-6 text-blue-100">成功匹配的订单数 / 总订单数</p>
+<div class="metric-formula text-sm ml-6">
+                            P(通过) = |M| / |O|
+                        </div>
+<p class="text-xs ml-6 mt-1 text-blue-200">
+                            其中，M为成功匹配的订单集合，O为全部订单集合
+                        </p>
+</li>
+<li>
+<div class="flex items-center mb-1">
+<i class="fas fa-coins text-yellow-400 mr-2"></i>
+<span class="font-semibold">资金利用率</span>
+</div>
+<p class="text-sm ml-6 text-blue-100">实际放款总额 / 资方总可用资金</p>
+<div class="metric-formula text-sm ml-6">
+                            U(资金) = Σ<sub>i∈M</sub> A<sub>i</sub> / Σ<sub>j∈F</sub> C<sub>j</sub>
+</div>
+<p class="text-xs ml-6 mt-1 text-blue-200">
+                            其中，A<sub>i</sub>为订单i的金额，C<sub>j</sub>为资方j的可用额度
+                        </p>
+</li>
+<li>
+<div class="flex items-center mb-1">
+<i class="fas fa-dollar-sign text-green-400 mr-2"></i>
+<span class="font-semibold">盈利金额</span>
+</div>
+<p class="text-sm ml-6 text-blue-100">所有成功订单带来的总利润</p>
+<div class="metric-formula text-sm ml-6">
+                            Π = Σ<sub>i∈M</sub> π<sub>i</sub>
+</div>
+<p class="text-xs ml-6 mt-1 text-blue-200">
+                            其中，π<sub>i</sub>为订单i的成功收益
+                        </p>
+</li>
+</ul>
+</div>
+<!-- Gray-scale Strategy -->
+<div class="card">
+<div class="flex items-center mb-4">
+<i class="fas fa-rocket text-orange-500 text-2xl mr-3"></i>
+<h2 class="section-title text-xl">灰度上线策略</h2>
+</div>
+<!-- A/B Testing -->
+<div class="mb-6">
+<div class="flex items-center mb-2">
+<div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mr-2">
+<span class="text-xs font-bold">1</span>
+</div>
+<h3 class="font-semibold">A/B测试</h3>
+</div>
+<div class="ml-8 space-y-3">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full bg-blue-800 flex items-center justify-center mr-2">
+<span class="text-xs">a</span>
+</div>
+<div>
+<p class="text-sm font-semibold">小流量验证 (5%)</p>
+<p class="text-xs text-blue-200">切分小部分用户，对比新旧方案的核心指标</p>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full bg-blue-800 flex items-center justify-center mr-2">
+<span class="text-xs">b</span>
+</div>
+<div>
+<p class="text-sm font-semibold">逐步扩量 (20% → ...)</p>
+<p class="text-xs text-blue-200">验证通过后，逐步扩大流量，持续监控</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Full-scale Launch -->
+<div>
+<div class="flex items-center mb-2">
+<div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center mr-2">
+<span class="text-xs font-bold">2</span>
+</div>
+<h3 class="font-semibold">全量推流</h3>
+</div>
+<div class="ml-8">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full bg-blue-800 flex items-center justify-center mr-2">
+<span class="text-xs">c</span>
+</div>
+<div>
+<p class="text-sm font-semibold">全面推广</p>
+<p class="text-xs text-blue-200">当A/B测试效果显著且系统稳定后，将新方案推广至全部用户</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Flow Diagram -->
+<div class="mt-6 h-[120px] relative" id="flow-diagram" data-sk-source-container="chart" data-sk-source-id="18WOJC">
+<!-- D3.js will render the flow diagram here -->
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="absolute bottom-4 right-4 text-xs text-blue-300">
+<p>资配订单智能匹配优化方案 | 第7页</p>
+</div>
+</div>
+<script>
+        // D3.js flow diagram
+        const width = 320;
+        const height = 120;
+        
+        const svg = d3.select("#flow-diagram")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+        
+        // Define the stages
+        const stages = [
+            { name: "A/B测试", x: 40, y: 60, r: 25 },
+            { name: "小流量验证", x: 120, y: 30, r: 20 },
+            { name: "逐步扩量", x: 120, y: 90, r: 20 },
+            { name: "全量推流", x: 240, y: 60, r: 25 }
+        ];
+        
+        // Draw circles for each stage
+        svg.selectAll("circle")
+            .data(stages)
+            .enter()
+            .append("circle")
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", d => d.r)
+            .attr("fill", "rgba(59, 130, 246, 0.3)")
+            .attr("stroke", "rgba(59, 130, 246, 0.8)")
+            .attr("stroke-width", 2);
+        
+        // Add text labels
+        svg.selectAll("text")
+            .data(stages)
+            .enter()
+            .append("text")
+            .attr("x", d => d.x)
+            .attr("y", d => d.y)
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "middle")
+            .attr("fill", "white")
+            .attr("font-size", "10px")
+            .text(d => d.name);
+        
+        // Draw connections
+        const connections = [
+            { source: 0, target: 1 },
+            { source: 0, target: 2 },
+            { source: 1, target: 3 },
+            { source: 2, target: 3 }
+        ];
+        
+        svg.selectAll("line")
+            .data(connections)
+            .enter()
+            .append("line")
+            .attr("x1", d => stages[d.source].x + stages[d.source].r)
+            .attr("y1", d => stages[d.source].y)
+            .attr("x2", d => stages[d.target].x - stages[d.target].r)
+            .attr("y2", d => stages[d.target].y)
+            .attr("stroke", "rgba(59, 130, 246, 0.6)")
+            .attr("stroke-width", 2)
+            .attr("marker-end", "url(#arrow)");
+        
+        // Add arrow markers
+        svg.append("defs").append("marker")
+            .attr("id", "arrow")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 8)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "rgba(59, 130, 246, 0.6)");
+        
+        // Add percentage labels
+        svg.append("text")
+            .attr("x", 120)
+            .attr("y", 20)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#f97316")
+            .attr("font-size", "10px")
+            .text("5%");
+        
+        svg.append("text")
+            .attr("x", 120)
+            .attr("y", 100)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#f97316")
+            .attr("font-size", "10px")
+            .text("20% → ...");
+    </script>
+
+</body></html>

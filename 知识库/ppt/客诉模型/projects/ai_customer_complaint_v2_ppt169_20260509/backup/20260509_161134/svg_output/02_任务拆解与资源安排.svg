@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="topRule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3A5F"/>
+      <stop offset="100%" stop-color="#00A6A6"/>
+    </linearGradient>
+  </defs>
+
+  <g id="bg">
+    <rect x="0" y="0" width="1280" height="720" fill="#F7F9FC"/>
+    <rect x="0" y="0" width="1280" height="4" fill="url(#topRule)"/>
+  </g>
+
+  <g id="header">
+    <text x="44" y="48" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="26" font-weight="bold" fill="#1E3A5F">任务拆解 — 双链路并行 · 横向比较收口</text>
+    <text x="44" y="74" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="600" fill="#667085" letter-spacing="1">CHAIN 1 + CHAIN 2 — CROSS-CHAIN COMPARISON — 4-STAGE CADENCE</text>
+  </g>
+
+  <g id="takeaway-bar">
+    <rect x="44" y="90" width="1192" height="40" rx="6" fill="#1E3A5F"/>
+    <text x="64" y="116" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="15" font-weight="bold" fill="#FFFFFF">业务知识链路 + 大模型自动挖掘链路并行跑 — <tspan fill="#7FE3E3">陶可晗负责横向比较，把两路结论对齐成统一客群体系</tspan></text>
+  </g>
+
+  <g id="lane1-bg">
+    <rect x="44" y="138" width="58" height="190" rx="6" fill="#E8F7F7"/>
+    <text x="73" y="233" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#00A6A6" transform="rotate(-90, 73, 233)">链路一 · 业务知识洞察</text>
+    <rect x="106" y="138" width="850" height="22" rx="6" fill="#E8F7F7"/>
+    <text x="116" y="153" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#00A6A6" letter-spacing="1.5">CHAIN 1 — EXPERT-KNOWLEDGE-DRIVEN INSIGHT</text>
+  </g>
+
+  <g id="l1-node-1">
+    <rect x="108" y="162" width="192" height="165" rx="10" fill="#FFFFFF" stroke="#00A6A6" stroke-width="2"/>
+    <rect x="108" y="162" width="192" height="28" rx="10" fill="#00A6A6"/>
+    <rect x="108" y="180" width="192" height="10" fill="#00A6A6"/>
+    <text x="120" y="181" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1.2">NODE 1</text>
+    <use data-icon="chunk-filled/lightbulb" x="120" y="200" width="24" height="24" fill="#00A6A6"/>
+    <text x="152" y="218" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">大模型 + 专家知识</text>
+    <text x="120" y="244" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="120" dy="0">客诉分类 / 风险信号</tspan><tspan x="120" dy="14">退费经验 / 坐席话术</tspan><tspan x="120" dy="14">→ 标签 + 提示词</tspan></text>
+    <g>
+      <rect x="120" y="297" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#00A6A6" stroke-width="1"/>
+      <circle cx="130" cy="307" r="3" fill="#00A6A6"/>
+      <text x="138" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#00A6A6">李怡静</text>
+    </g>
+  </g>
+
+  <g id="l1-node-2">
+    <rect x="322" y="162" width="192" height="165" rx="10" fill="#FFFFFF" stroke="#00A6A6" stroke-width="2"/>
+    <rect x="322" y="162" width="192" height="28" rx="10" fill="#00A6A6"/>
+    <rect x="322" y="180" width="192" height="10" fill="#00A6A6"/>
+    <text x="334" y="181" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1.2">NODE 2</text>
+    <use data-icon="chunk-filled/chart-line" x="334" y="200" width="24" height="24" fill="#00A6A6"/>
+    <text x="366" y="218" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">用户行为洞察</text>
+    <text x="334" y="244" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="334" dy="0">诉求 / 情绪 / 沟通方式</tspan><tspan x="334" dy="14">反复进线 / 退费预期</tspan><tspan x="334" dy="14">→ 客户级行为画像</tspan></text>
+    <g>
+      <rect x="334" y="297" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#00A6A6" stroke-width="1"/>
+      <circle cx="344" cy="307" r="3" fill="#00A6A6"/>
+      <text x="352" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#00A6A6">李怡静</text>
+    </g>
+  </g>
+
+  <g id="l1-node-3a">
+    <rect x="536" y="162" width="192" height="78" rx="8" fill="#FFFFFF" stroke="#00A6A6" stroke-width="1.5"/>
+    <rect x="536" y="162" width="4" height="78" rx="2" fill="#00A6A6"/>
+    <use data-icon="chunk-filled/users" x="548" y="170" width="20" height="20" fill="#00A6A6"/>
+    <text x="574" y="184" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">专家分群洞察</text>
+    <text x="548" y="206" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033">专业性 × 诉求 × 风险维度</text>
+    <g>
+      <rect x="548" y="214" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#00A6A6" stroke-width="1"/>
+      <circle cx="558" cy="224" r="3" fill="#00A6A6"/>
+      <text x="566" y="228" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#00A6A6">李怡静</text>
+    </g>
+  </g>
+
+  <g id="l1-node-3b">
+    <rect x="536" y="249" width="192" height="78" rx="8" fill="#FFF4ED" stroke="#D04A02" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <rect x="684" y="257" width="36" height="16" rx="8" fill="#D04A02"/>
+    <text x="702" y="269" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="10" font-weight="bold" fill="#FFFFFF">短接</text>
+    <use data-icon="chunk-filled/wand-with-sparkles" x="548" y="257" width="20" height="20" fill="#D04A02"/>
+    <text x="574" y="271" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">大模型直接分群</text>
+    <text x="548" y="293" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033">不受专家框架约束</text>
+    <g>
+      <rect x="548" y="301" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#D04A02" stroke-width="1"/>
+      <circle cx="558" cy="311" r="3" fill="#D04A02"/>
+      <text x="566" y="315" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#D04A02">李怡静</text>
+    </g>
+  </g>
+
+  <g id="l1-node-4">
+    <rect x="750" y="162" width="192" height="165" rx="10" fill="#FFFFFF" stroke="#00A6A6" stroke-width="2"/>
+    <rect x="750" y="162" width="192" height="28" rx="10" fill="#00A6A6"/>
+    <rect x="750" y="180" width="192" height="10" fill="#00A6A6"/>
+    <text x="762" y="181" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1.2">NODE 4</text>
+    <use data-icon="chunk-filled/magnifying-glass" x="762" y="200" width="24" height="24" fill="#00A6A6"/>
+    <text x="794" y="218" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">分群下钻分析</text>
+    <text x="762" y="244" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="762" dy="0">Top 诉求 / 典型话术</tspan><tspan x="762" dy="14">风险触发 / 退费敏感度</tspan><tspan x="762" dy="14">→ 分群处置策略</tspan></text>
+    <g>
+      <rect x="762" y="297" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#00A6A6" stroke-width="1"/>
+      <circle cx="772" cy="307" r="3" fill="#00A6A6"/>
+      <text x="780" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#00A6A6">李怡静</text>
+    </g>
+  </g>
+
+  <g id="lane2-bg">
+    <rect x="44" y="354" width="58" height="190" rx="6" fill="#EAF0F6"/>
+    <text x="73" y="449" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#4A90A4" transform="rotate(-90, 73, 449)">链路二 · 大模型挖掘</text>
+    <rect x="106" y="354" width="850" height="22" rx="6" fill="#EAF0F6"/>
+    <text x="116" y="369" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#4A90A4" letter-spacing="1.5">CHAIN 2 — UNSUPERVISED CLUSTERING DISCOVERY</text>
+  </g>
+
+  <g id="l2-node-1">
+    <rect x="108" y="378" width="256" height="165" rx="10" fill="#FFFFFF" stroke="#4A90A4" stroke-width="2"/>
+    <rect x="108" y="378" width="256" height="28" rx="10" fill="#4A90A4"/>
+    <rect x="108" y="396" width="256" height="10" fill="#4A90A4"/>
+    <text x="120" y="397" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1.2">NODE A</text>
+    <use data-icon="chunk-filled/share-nodes" x="120" y="416" width="24" height="24" fill="#4A90A4"/>
+    <text x="152" y="434" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">大模型 + embedding + 聚类算法</text>
+    <text x="120" y="460" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="120" dy="0">全量通话向量化</tspan><tspan x="120" dy="14">→ 自然语义簇</tspan></text>
+    <g>
+      <rect x="120" y="513" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#4A90A4" stroke-width="1"/>
+      <circle cx="130" cy="523" r="3" fill="#4A90A4"/>
+      <text x="138" y="527" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#4A90A4">殷文天</text>
+    </g>
+  </g>
+
+  <g id="l2-node-2">
+    <rect x="396" y="378" width="256" height="165" rx="10" fill="#FFFFFF" stroke="#4A90A4" stroke-width="2"/>
+    <rect x="396" y="378" width="256" height="28" rx="10" fill="#4A90A4"/>
+    <rect x="396" y="396" width="256" height="10" fill="#4A90A4"/>
+    <text x="408" y="397" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1.2">NODE B</text>
+    <use data-icon="chunk-filled/layers" x="408" y="416" width="24" height="24" fill="#4A90A4"/>
+    <text x="440" y="434" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">聚类行为洞察</text>
+    <text x="408" y="460" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="408" dy="0">同簇词频 + 关键句</tspan><tspan x="408" dy="14">+ 大模型总结</tspan></text>
+    <g>
+      <rect x="408" y="513" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#4A90A4" stroke-width="1"/>
+      <circle cx="418" cy="523" r="3" fill="#4A90A4"/>
+      <text x="426" y="527" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#4A90A4">殷文天</text>
+    </g>
+  </g>
+
+  <g id="l2-node-3">
+    <rect x="684" y="378" width="256" height="165" rx="10" fill="#FFFFFF" stroke="#4A90A4" stroke-width="2"/>
+    <rect x="684" y="378" width="256" height="28" rx="10" fill="#4A90A4"/>
+    <rect x="684" y="396" width="256" height="10" fill="#4A90A4"/>
+    <text x="696" y="397" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="10" font-weight="bold" fill="#FFFFFF" letter-spacing="1.2">NODE C</text>
+    <use data-icon="chunk-filled/magnifying-glass" x="696" y="416" width="24" height="24" fill="#4A90A4"/>
+    <text x="728" y="434" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">同质化信息挖掘</text>
+    <text x="696" y="460" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="696" dy="0">每簇为何相似 / 风险点</tspan><tspan x="696" dy="14">/ 适配处置方式</tspan></text>
+    <g>
+      <rect x="696" y="513" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#4A90A4" stroke-width="1"/>
+      <circle cx="706" cy="523" r="3" fill="#4A90A4"/>
+      <text x="714" y="527" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#4A90A4">殷文天</text>
+    </g>
+  </g>
+
+  <g id="collector">
+    <rect x="962" y="138" width="274" height="405" rx="12" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="2.5"/>
+    <rect x="962" y="138" width="274" height="44" rx="12" fill="#1E3A5F"/>
+    <rect x="962" y="170" width="274" height="12" fill="#1E3A5F"/>
+    <use data-icon="chunk-filled/arrows-left-right" x="976" y="148" width="24" height="24" fill="#FFFFFF"/>
+    <text x="1006" y="165" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#FFFFFF">横向比较与发现</text>
+        <g>
+      <rect x="976" y="196" width="70" height="20" rx="10" fill="#FFFFFF" stroke="#1E3A5F" stroke-width="1"/>
+      <circle cx="986" cy="206" r="3" fill="#1E3A5F"/>
+      <text x="994" y="210" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#1E3A5F">陶可晗</text>
+    </g>
+    <text x="976" y="246" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">三方对齐 · 发现差异</text>
+    <line x1="976" y1="256" x2="1222" y2="256" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="976" y="276" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#172033"><tspan x="976" dy="0">链路一 专家分群</tspan><tspan x="976" dy="16">链路一 大模型分群</tspan><tspan x="976" dy="16">链路二 聚类簇</tspan><tspan x="976" dy="16">＋ 其他团队洞察</tspan></text>
+    <text x="976" y="370" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#D04A02">差异举例</text>
+    <text x="976" y="388" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="976" dy="0">大模型认为的"豆包人"</tspan><tspan x="976" dy="14">vs 专家规则定义的"豆包人"</tspan><tspan x="976" dy="14">→ 差异即新维度候选</tspan></text>
+    <line x1="976" y1="450" x2="1222" y2="450" stroke="#D9E2EC" stroke-width="1"/>
+    <use data-icon="chunk-filled/arrows-rotate-clockwise" x="976" y="460" width="20" height="20" fill="#1F8A70"/>
+    <text x="1002" y="474" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#1F8A70">反哺专家框架</text>
+    <text x="976" y="498" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033">新客群 / 新风险信号 / 新话术 → 沉淀为标签 + 评测样本</text>
+  </g>
+
+  <g id="connections">
+    <line x1="300" y1="244" x2="318" y2="244" stroke="#00A6A6" stroke-width="2.5"/>
+    <path d="M 318 237 L 326 244 L 318 251 Z" fill="#00A6A6"/>
+    <path d="M 514 244 L 525 244 L 525 201 L 532 201" stroke="#00A6A6" stroke-width="2.5" fill="none"/>
+    <path d="M 532 195 L 540 201 L 532 207 Z" fill="#00A6A6"/>
+    <path d="M 514 244 L 525 244 L 525 288 L 532 288" stroke="#D04A02" stroke-width="2.5" stroke-dasharray="6 4" fill="none"/>
+    <path d="M 532 282 L 540 288 L 532 294 Z" fill="#D04A02"/>
+    <path d="M 728 201 L 739 201 L 739 244 L 746 244" stroke="#00A6A6" stroke-width="2.5" fill="none"/>
+    <path d="M 728 288 L 739 288 L 739 244 L 746 244" stroke="#D04A02" stroke-width="2.5" stroke-dasharray="6 4" fill="none"/>
+    <path d="M 746 237 L 754 244 L 746 251 Z" fill="#00A6A6"/>
+    <line x1="364" y1="460" x2="392" y2="460" stroke="#4A90A4" stroke-width="2.5"/>
+    <path d="M 392 453 L 400 460 L 392 467 Z" fill="#4A90A4"/>
+    <line x1="652" y1="460" x2="680" y2="460" stroke="#4A90A4" stroke-width="2.5"/>
+    <path d="M 680 453 L 688 460 L 680 467 Z" fill="#4A90A4"/>
+    <line x1="942" y1="244" x2="958" y2="244" stroke="#00A6A6" stroke-width="2.5"/>
+    <path d="M 958 237 L 966 244 L 958 251 Z" fill="#00A6A6"/>
+    <line x1="940" y1="460" x2="958" y2="460" stroke="#4A90A4" stroke-width="2.5"/>
+    <path d="M 958 453 L 966 460 L 958 467 Z" fill="#4A90A4"/>
+  </g>
+
+  <g id="phase-1">
+    <rect x="44" y="560" width="286" height="92" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="44" y="560" width="6" height="92" rx="3" fill="#1E3A5F"/>
+    <use data-icon="chunk-filled/clock" x="62" y="574" width="20" height="20" fill="#1E3A5F"/>
+    <text x="88" y="579" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">阶段 1</text>
+    <text x="88" y="594" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">输入与跑通</text>
+    <text x="62" y="622" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="62" dy="0">专家知识入库 · 行为信号定义 · 聚类链路打通</tspan></text>
+  </g>
+  <g id="phase-2">
+    <rect x="346" y="560" width="286" height="92" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="346" y="560" width="6" height="92" rx="3" fill="#00A6A6"/>
+    <use data-icon="chunk-filled/clock" x="364" y="574" width="20" height="20" fill="#00A6A6"/>
+    <text x="390" y="579" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">阶段 2</text>
+    <text x="390" y="594" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#00A6A6">横向对齐</text>
+    <text x="364" y="622" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="364" dy="0">专家 / 大模型 / 聚类簇三方对齐 · 发现新维度</tspan></text>
+  </g>
+  <g id="phase-3">
+    <rect x="648" y="560" width="286" height="92" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="648" y="560" width="6" height="92" rx="3" fill="#1E3A5F"/>
+    <use data-icon="chunk-filled/clock" x="666" y="574" width="20" height="20" fill="#1E3A5F"/>
+    <text x="692" y="579" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">阶段 3</text>
+    <text x="692" y="594" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">重点客群下钻</text>
+    <text x="666" y="622" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="666" dy="0">Top 诉求 · 话术 · 风险 · 处置建议输出</tspan></text>
+  </g>
+  <g id="phase-4">
+    <rect x="950" y="560" width="286" height="92" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="950" y="560" width="6" height="92" rx="3" fill="#00A6A6"/>
+    <use data-icon="chunk-filled/clock" x="968" y="574" width="20" height="20" fill="#00A6A6"/>
+    <text x="994" y="579" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">阶段 4</text>
+    <text x="994" y="594" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#00A6A6">工具化落地</text>
+    <text x="968" y="622" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#172033"><tspan x="968" dy="0">工单高亮 · 坐席辅助 · AI 首通回访 · 周复盘</tspan></text>
+  </g>
+
+  <g id="phase-arrows">
+    <path d="M 328 601 L 338 601 L 338 597 L 346 606 L 338 615 L 338 611 L 328 611 Z" fill="#98A2B3"/>
+    <path d="M 630 601 L 640 601 L 640 597 L 648 606 L 640 615 L 640 611 L 630 611 Z" fill="#98A2B3"/>
+    <path d="M 932 601 L 942 601 L 942 597 L 950 606 L 942 615 L 942 611 L 932 611 Z" fill="#98A2B3"/>
+  </g>
+
+  <g id="footer">
+    <line x1="44" y1="678" x2="1236" y2="678" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="44" y="697" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#1E3A5F">4 人各 0.5 人力</text>
+    <text x="160" y="697" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#667085">· 整体代码架构 <tspan font-weight="bold" fill="#1E3A5F">李嘉辉</tspan>  · 聚类条线 <tspan font-weight="bold" fill="#4A90A4">殷文天</tspan>  · 行为与分群洞察 <tspan font-weight="bold" fill="#00A6A6">李怡静</tspan>  · 横向比较与发现 <tspan font-weight="bold" fill="#1E3A5F">陶可晗</tspan></text>
+    <text x="1236" y="697" text-anchor="end" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#98A2B3">P 02 / 02</text>
+  </g>
+</svg>

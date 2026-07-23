@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>背景与问题</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .bipartite-graph {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .node {
+            fill: #3B82F6;
+            stroke: #1E40AF;
+            stroke-width: 2px;
+        }
+        .node.right {
+            fill: #F97316;
+        }
+        .link {
+            stroke: rgba(59, 130, 246, 0.6);
+            stroke-width: 1.5px;
+        }
+        .node-label {
+            font-size: 12px;
+            text-anchor: middle;
+            fill: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="slide bg-gradient-to-br from-gray-900 to-blue-900 text-white p-10 flex flex-col">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold mb-2">背景与问题</h1>
+<div class="w-20 h-1 bg-orange-500"></div>
+</div>
+<!-- Main content -->
+<div class="flex flex-1">
+<!-- Left side content -->
+<div class="w-1/2 pr-8">
+<!-- Core contradiction -->
+<div class="mb-6">
+<div class="flex items-center mb-3">
+<div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center mr-3">
+<i class="fas fa-exclamation-triangle text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold text-blue-200">核心矛盾</h2>
+</div>
+<ul class="list-disc ml-14 space-y-2 text-lg">
+<li>外部政策缩紧，资金规模持续缩减</li>
+<li><span class="text-orange-400 font-semibold">资金不足，资产过剩</span>：借款需求 &gt; 可用资金</li>
+</ul>
+</div>
+<!-- Problem abstraction -->
+<div class="mb-6">
+<div class="flex items-center mb-3">
+<div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+<i class="fas fa-project-diagram text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold text-blue-200">问题抽象</h2>
+</div>
+<ul class="list-disc ml-14 space-y-2 text-lg">
+<li>本质是<span class="text-orange-400 font-semibold">二分图匹配问题</span>：在资方和订单两个集合间建立最优映射</li>
+<li>目标：找到最优匹配策略，最大化资金利用率和通过率</li>
+</ul>
+</div>
+<!-- Application scenarios -->
+<div>
+<div class="flex items-center mb-3">
+<div class="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center mr-3">
+<i class="fas fa-sitemap text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold text-blue-200">典型应用场景</h2>
+</div>
+<div class="grid grid-cols-3 gap-4 ml-14">
+<div class="bg-blue-800 bg-opacity-40 p-4 rounded-lg border border-blue-700">
+<div class="text-center mb-2">
+<i class="fas fa-money-bill-wave text-3xl text-green-400"></i>
+</div>
+<p class="text-center font-medium">金融：借贷匹配</p>
+</div>
+<div class="bg-blue-800 bg-opacity-40 p-4 rounded-lg border border-blue-700">
+<div class="text-center mb-2">
+<i class="fas fa-taxi text-3xl text-yellow-400"></i>
+</div>
+<p class="text-center font-medium">出行：司乘匹配</p>
+</div>
+<div class="bg-blue-800 bg-opacity-40 p-4 rounded-lg border border-blue-700">
+<div class="text-center mb-2">
+<i class="fas fa-shopping-cart text-3xl text-blue-400"></i>
+</div>
+<p class="text-center font-medium">电商：商品推荐</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right side visualization -->
+<div class="w-1/2 pl-4">
+<div class="bg-blue-900 bg-opacity-40 rounded-xl p-4 h-full border border-blue-800">
+<h3 class="text-xl font-semibold text-center mb-4">二分图匹配问题示意</h3>
+<div class="h-5/6" id="bipartite-viz" data-sk-source-container="chart" data-sk-source-id="18WOHU"></div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-6 text-sm text-blue-300 text-right">
+<p>资配订单智能匹配优化方案 | 第2页</p>
+</div>
+</div>
+<script>
+        // Bipartite graph visualization
+        const width = 550;
+        const height = 400;
+        
+        // Create SVG container
+        const svg = d3.select("#bipartite-viz")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+            
+        // Define nodes - left side (orders) and right side (funding sources)
+        const nodes = [
+            // Left side - Orders
+            { id: "o1", name: "订单A", side: "left", x: 100, y: 80 },
+            { id: "o2", name: "订单B", side: "left", x: 100, y: 160 },
+            { id: "o3", name: "订单C", side: "left", x: 100, y: 240 },
+            { id: "o4", name: "订单D", side: "left", x: 100, y: 320 },
+            
+            // Right side - Funding sources
+            { id: "f1", name: "资方X", side: "right", x: 450, y: 80 },
+            { id: "f2", name: "资方Y", side: "right", x: 450, y: 160 },
+            { id: "f3", name: "资方Z", side: "right", x: 450, y: 240 },
+            { id: "f4", name: "资方W", side: "right", x: 450, y: 320 }
+        ];
+        
+        // Define links between nodes (potential matches)
+        const links = [
+            { source: "o1", target: "f1", value: 0.8 },
+            { source: "o1", target: "f2", value: 0.5 },
+            { source: "o2", target: "f1", value: 0.3 },
+            { source: "o2", target: "f2", value: 0.9 },
+            { source: "o2", target: "f3", value: 0.4 },
+            { source: "o3", target: "f2", value: 0.6 },
+            { source: "o3", target: "f3", value: 0.7 },
+            { source: "o3", target: "f4", value: 0.2 },
+            { source: "o4", target: "f3", value: 0.8 },
+            { source: "o4", target: "f4", value: 0.9 }
+        ];
+        
+        // Draw links
+        svg.selectAll(".link")
+            .data(links)
+            .enter()
+            .append("line")
+            .attr("class", "link")
+            .attr("x1", d => nodes.find(n => n.id === d.source).x)
+            .attr("y1", d => nodes.find(n => n.id === d.source).y)
+            .attr("x2", d => nodes.find(n => n.id === d.target).x)
+            .attr("y2", d => nodes.find(n => n.id === d.target).y)
+            .style("stroke-width", d => d.value * 3)
+            .style("stroke", d => {
+                const order = nodes.find(n => n.id === d.source);
+                const funding = nodes.find(n => n.id === d.target);
+                return `rgba(${order.x}, ${order.y}, ${funding.x}, ${funding.y})`;
+            });
+            
+        // Draw nodes
+        const nodeGroups = svg.selectAll(".node-group")
+            .data(nodes)
+            .enter()
+            .append("g")
+            .attr("class", "node-group")
+            .attr("transform", d => `translate(${d.x}, ${d.y})`);
+            
+        nodeGroups.append("circle")
+            .attr("class", d => d.side === "right" ? "node right" : "node")
+            .attr("r", 25)
+            .attr("cx", 0)
+            .attr("cy", 0);
+            
+        nodeGroups.append("text")
+            .attr("class", "node-label")
+            .attr("x", 0)
+            .attr("y", 5)
+            .text(d => d.name);
+            
+        // Add labels for the two sides
+        svg.append("text")
+            .attr("x", 100)
+            .attr("y", 30)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#93C5FD")
+            .style("font-size", "18px")
+            .style("font-weight", "bold")
+            .text("订单集合 (O)");
+            
+        svg.append("text")
+            .attr("x", 450)
+            .attr("y", 30)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#FDBA74")
+            .style("font-size", "18px")
+            .style("font-weight", "bold")
+            .text("资方集合 (F)");
+            
+        // Add a title for the visualization
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", height - 20)
+            .attr("text-anchor", "middle")
+            .attr("fill", "#E5E7EB")
+            .style("font-size", "16px")
+            .style("font-style", "italic")
+            .text("二分图匹配问题：在订单与资方间建立最优映射关系");
+    </script>
+
+</body></html>

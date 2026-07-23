@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="topRule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E3A5F"/>
+      <stop offset="100%" stop-color="#00A6A6"/>
+    </linearGradient>
+  </defs>
+
+  <g id="bg">
+    <rect x="0" y="0" width="1280" height="720" fill="#F7F9FC"/>
+    <rect x="0" y="0" width="1280" height="4" fill="url(#topRule)"/>
+  </g>
+
+  <g id="header">
+    <text x="44" y="48" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="26" font-weight="bold" fill="#1E3A5F">AI 专项价值与方法路径</text>
+    <text x="44" y="74" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="600" fill="#667085" letter-spacing="1">FROM CALL TO CLOSED LOOP — 5 STAGES — ONE BUSINESS LOOP</text>
+  </g>
+
+  <g id="takeaway-bar">
+    <rect x="44" y="90" width="1192" height="44" rx="6" fill="#1E3A5F"/>
+    <text x="64" y="118" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="bold" fill="#FFFFFF">AI 专项要形成"识别—分类—策略—反馈"的业务闭环 — <tspan fill="#7FE3E3">同时压降外诉、优化退费、沉淀经验</tspan>，而不是单点模型实验</text>
+  </g>
+
+  <g id="pipeline-frame">
+    <rect x="44" y="150" width="1192" height="380" rx="10" fill="none" stroke="#D9E2EC" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <rect x="44" y="150" width="1192" height="32" rx="10" fill="#FFFFFF"/>
+    <text x="640" y="171" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#1E3A5F" letter-spacing="2">SEQUENTIAL FLOW — 电话 → 大模型 → 行为识别 → 客群分类 → 处置策略</text>
+  </g>
+
+  <g id="stage-1">
+    <rect x="58" y="195" width="222" height="320" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="58" y="195" width="222" height="58" rx="10" fill="#4A90A4"/>
+    <rect x="58" y="240" width="222" height="13" fill="#4A90A4"/>
+    <use data-icon="chunk-filled/phone" x="74" y="208" width="32" height="32" fill="#FFFFFF"/>
+    <text x="116" y="222" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#FFFFFF" letter-spacing="1">STAGE 01</text>
+    <text x="116" y="242" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="bold" fill="#FFFFFF">电话 · 数据源</text>
+    <text x="74" y="284" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">多源采集</text>
+    <circle cx="80" cy="307" r="2.5" fill="#4A90A4"/>
+    <text x="92" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">通话文本</text>
+    <circle cx="80" cy="332" r="2.5" fill="#4A90A4"/>
+    <text x="92" y="336" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">12378 拨打 / 工单</text>
+    <circle cx="80" cy="357" r="2.5" fill="#4A90A4"/>
+    <text x="92" y="361" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">短信触达 / 客户标签</text>
+    <circle cx="80" cy="382" r="2.5" fill="#4A90A4"/>
+    <text x="92" y="386" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">退费与投诉结果</text>
+    <line x1="74" y1="420" x2="264" y2="420" stroke="#D9E2EC" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="74" y="436" width="190" height="62" rx="6" fill="#F7F9FC" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="169" y="456" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">STAGE OUTPUT</text>
+    <text x="169" y="482" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#4A90A4">多源原始数据</text>
+  </g>
+
+  <g id="stage-2">
+    <rect x="294" y="195" width="222" height="320" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="294" y="195" width="222" height="58" rx="10" fill="#1E3A5F"/>
+    <rect x="294" y="240" width="222" height="13" fill="#1E3A5F"/>
+    <use data-icon="chunk-filled/bolt" x="310" y="208" width="32" height="32" fill="#FFFFFF"/>
+    <text x="352" y="222" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#FFFFFF" letter-spacing="1">STAGE 02</text>
+    <text x="352" y="242" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="bold" fill="#FFFFFF">大模型 · 双路并行</text>
+    <text x="310" y="284" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">专家经验嵌入 + 数据探索</text>
+    <circle cx="316" cy="307" r="2.5" fill="#1E3A5F"/>
+    <text x="328" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">自顶向下规则归类</text>
+    <circle cx="316" cy="332" r="2.5" fill="#1E3A5F"/>
+    <text x="328" y="336" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">自底向上文本聚类</text>
+    <circle cx="316" cy="357" r="2.5" fill="#1E3A5F"/>
+    <text x="328" y="361" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">多基座交叉验证</text>
+    <circle cx="316" cy="382" r="2.5" fill="#1E3A5F"/>
+    <text x="328" y="386" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">人工复核闭环</text>
+    <line x1="310" y1="420" x2="500" y2="420" stroke="#D9E2EC" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="310" y="436" width="190" height="62" rx="6" fill="#EAF0F6" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="405" y="456" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">STAGE OUTPUT</text>
+    <text x="405" y="482" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">规则标签 + 客户簇</text>
+  </g>
+
+  <g id="stage-3">
+    <rect x="530" y="195" width="222" height="320" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="530" y="195" width="222" height="58" rx="10" fill="#00A6A6"/>
+    <rect x="530" y="240" width="222" height="13" fill="#00A6A6"/>
+    <use data-icon="chunk-filled/target" x="546" y="208" width="32" height="32" fill="#FFFFFF"/>
+    <text x="588" y="222" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#FFFFFF" letter-spacing="1">STAGE 03</text>
+    <text x="588" y="242" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="bold" fill="#FFFFFF">行为识别</text>
+    <text x="546" y="284" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">客户级行为信号</text>
+    <circle cx="552" cy="307" r="2.5" fill="#00A6A6"/>
+    <text x="564" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">投诉倾向 / 外溢风险</text>
+    <circle cx="552" cy="332" r="2.5" fill="#00A6A6"/>
+    <text x="564" y="336" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">诉求强度 / 沟通方式</text>
+    <circle cx="552" cy="357" r="2.5" fill="#00A6A6"/>
+    <text x="564" y="361" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">反复进线 / 情绪曲线</text>
+    <circle cx="552" cy="382" r="2.5" fill="#00A6A6"/>
+    <text x="564" y="386" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">退费预期 / 法律意识</text>
+    <line x1="546" y1="420" x2="736" y2="420" stroke="#D9E2EC" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="546" y="436" width="190" height="62" rx="6" fill="#E8F7F7" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="641" y="456" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">STAGE OUTPUT</text>
+    <text x="641" y="482" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#00A6A6">客户行为画像</text>
+  </g>
+
+  <g id="stage-4">
+    <rect x="766" y="195" width="222" height="320" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="766" y="195" width="222" height="58" rx="10" fill="#00A6A6"/>
+    <rect x="766" y="240" width="222" height="13" fill="#00A6A6"/>
+    <use data-icon="chunk-filled/users" x="782" y="208" width="32" height="32" fill="#FFFFFF"/>
+    <text x="824" y="222" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#FFFFFF" letter-spacing="1">STAGE 04</text>
+    <text x="824" y="242" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="bold" fill="#FFFFFF">客群分类</text>
+    <text x="782" y="284" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">双轴 + 等待挖掘维度</text>
+    <circle cx="788" cy="307" r="2.5" fill="#00A6A6"/>
+    <text x="800" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">小白 / 豆包人 / 专业型</text>
+    <circle cx="788" cy="332" r="2.5" fill="#00A6A6"/>
+    <text x="800" y="336" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">强硬 / 协商 / 软弱</text>
+    <circle cx="788" cy="357" r="2.5" fill="#00A6A6"/>
+    <text x="800" y="361" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">客户类型 × 诉求矩阵</text>
+    <circle cx="788" cy="382" r="2.5" fill="#00A6A6"/>
+    <text x="800" y="386" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">等待挖掘维度</text>
+    <line x1="782" y1="420" x2="972" y2="420" stroke="#D9E2EC" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="782" y="436" width="190" height="62" rx="6" fill="#E8F7F7" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="877" y="456" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">STAGE OUTPUT</text>
+    <text x="877" y="482" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#00A6A6">双轴客群标签</text>
+  </g>
+
+  <g id="stage-5">
+    <rect x="1002" y="195" width="222" height="320" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="1002" y="195" width="222" height="58" rx="10" fill="#1E3A5F"/>
+    <rect x="1002" y="240" width="222" height="13" fill="#1E3A5F"/>
+    <use data-icon="chunk-filled/shield-check" x="1018" y="208" width="32" height="32" fill="#FFFFFF"/>
+    <text x="1060" y="222" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#FFFFFF" letter-spacing="1">STAGE 05</text>
+    <text x="1060" y="242" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="bold" fill="#FFFFFF">处置策略</text>
+    <text x="1018" y="284" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1E3A5F">分流 + 话术 + 退费力度</text>
+    <circle cx="1024" cy="307" r="2.5" fill="#1E3A5F"/>
+    <text x="1036" y="311" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">分流建议 / 专项组</text>
+    <circle cx="1024" cy="332" r="2.5" fill="#1E3A5F"/>
+    <text x="1036" y="336" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">外呼话术 / 拒绝方式</text>
+    <circle cx="1024" cy="357" r="2.5" fill="#1E3A5F"/>
+    <text x="1036" y="361" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">退费力度 / 跟进周期</text>
+    <circle cx="1024" cy="382" r="2.5" fill="#1E3A5F"/>
+    <text x="1036" y="386" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#172033">结果反哺模型</text>
+    <line x1="1018" y1="420" x2="1208" y2="420" stroke="#D9E2EC" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="1018" y="436" width="190" height="62" rx="6" fill="#EAF0F6" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="1113" y="456" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" font-weight="bold" fill="#667085" letter-spacing="1.5">STAGE OUTPUT</text>
+    <text x="1113" y="482" text-anchor="middle" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="bold" fill="#1E3A5F">闭环反哺数据</text>
+  </g>
+
+  <g id="stage-arrows" fill="#4A90A4">
+    <path d="M 280 350 L 290 350 L 290 343 L 304 354 L 290 365 L 290 358 L 280 358 Z"/>
+    <path d="M 516 350 L 526 350 L 526 343 L 540 354 L 526 365 L 526 358 L 516 358 Z"/>
+    <path d="M 752 350 L 762 350 L 762 343 L 776 354 L 762 365 L 762 358 L 752 358 Z"/>
+    <path d="M 988 350 L 998 350 L 998 343 L 1012 354 L 998 365 L 998 358 L 988 358 Z"/>
+  </g>
+
+  <g id="value-loop">
+    <rect x="44" y="548" width="1192" height="118" rx="10" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="1.5"/>
+    <rect x="44" y="548" width="6" height="118" rx="3" fill="#1F8A70"/>
+    <use data-icon="chunk-filled/arrows-rotate-clockwise" x="68" y="572" width="28" height="28" fill="#1F8A70"/>
+    <text x="106" y="582" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#1F8A70" letter-spacing="1.5">CLOSED LOOP — 价值映射</text>
+    <text x="106" y="608" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="bold" fill="#1E3A5F">处置结果反哺大模型 → 持续校准识别 / 分类 / 策略</text>
+    <rect x="370" y="582" width="200" height="62" rx="8" fill="#FFF4ED" stroke="#D9E2EC" stroke-width="1"/>
+    <use data-icon="chunk-filled/shield-check" x="384" y="600" width="24" height="24" fill="#D04A02"/>
+    <text x="416" y="608" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#667085" letter-spacing="1">VALUE 1</text>
+    <text x="416" y="630" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="15" font-weight="bold" fill="#D04A02">压降外诉</text>
+    <rect x="586" y="582" width="200" height="62" rx="8" fill="#EAF0F6" stroke="#D9E2EC" stroke-width="1"/>
+    <use data-icon="chunk-filled/target" x="600" y="600" width="24" height="24" fill="#1E3A5F"/>
+    <text x="632" y="608" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#667085" letter-spacing="1">VALUE 2</text>
+    <text x="632" y="630" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="15" font-weight="bold" fill="#1E3A5F">优化退费</text>
+    <rect x="802" y="582" width="200" height="62" rx="8" fill="#E8F7F7" stroke="#D9E2EC" stroke-width="1"/>
+    <use data-icon="chunk-filled/lightbulb" x="816" y="600" width="24" height="24" fill="#00A6A6"/>
+    <text x="848" y="608" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" font-weight="bold" fill="#667085" letter-spacing="1">VALUE 3</text>
+    <text x="848" y="630" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="15" font-weight="bold" fill="#00A6A6">沉淀经验</text>
+    <path d="M 1018 605 L 1058 605 L 1058 595 L 1080 612 L 1058 629 L 1058 619 L 1018 619 Z" fill="#1F8A70"/>
+    <text x="1100" y="612" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="bold" fill="#1F8A70">回流模型</text>
+    <text x="1100" y="630" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#667085">数据闭环</text>
+  </g>
+
+  <g id="footer">
+    <line x1="44" y1="685" x2="1236" y2="685" stroke="#D9E2EC" stroke-width="1"/>
+    <text x="44" y="704" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#98A2B3">AI 客诉专项 · v2 · 2026-05-09</text>
+    <text x="1236" y="704" text-anchor="end" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="11" fill="#98A2B3">P 01 / 02</text>
+  </g>
+</svg>

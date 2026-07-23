@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>推荐模型建模</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 720px; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+        }
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: rgba(30, 58, 138, 0.1);
+            border-radius: 4px;
+            padding: 8px 12px;
+            display: inline-block;
+        }
+        .highlight {
+            color: #f97316;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="slide bg-gradient-to-br from-gray-900 to-blue-900 text-white p-10 relative">
+<!-- Header -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold mb-2">推荐模型建模</h1>
+<div class="w-20 h-1 bg-orange-500"></div>
+</div>
+<!-- Main Content -->
+<div class="grid grid-cols-12 gap-6 h-[520px]">
+<!-- Left Column: Mathematical Model -->
+<div class="col-span-7 bg-blue-900 bg-opacity-30 rounded-lg p-6 border border-blue-800">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+<i class="fas fa-square-root-alt text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold">数学表达</h2>
+</div>
+<div class="mb-4">
+<p class="mb-2 text-blue-200">基于深度学习的推荐模型通常包含以下核心组件：</p>
+<ul class="space-y-3 text-blue-100">
+<li class="flex items-start">
+<i class="fas fa-angle-right mt-1 mr-2 text-orange-400"></i>
+<span><span class="highlight">用户嵌入层</span>：将用户特征转化为低维向量空间</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-angle-right mt-1 mr-2 text-orange-400"></i>
+<span><span class="highlight">商品嵌入层</span>：将订单特征转化为低维向量空间</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-angle-right mt-1 mr-2 text-orange-400"></i>
+<span><span class="highlight">交互层</span>：计算用户向量与商品向量的相似度</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-angle-right mt-1 mr-2 text-orange-400"></i>
+<span><span class="highlight">预测层</span>：通过神经网络预测匹配概率</span>
+</li>
+</ul>
+</div>
+<div class="bg-blue-800 bg-opacity-40 p-4 rounded-lg border border-blue-700">
+<p class="text-lg font-medium mb-2 text-orange-300">核心预测公式：</p>
+<div class="formula text-center text-lg">
+                        P(Y<sub>ij</sub> = 1 | X<sub>i</sub>, Z<sub>j</sub>) = σ(W<sub>2</sub> · tanh(W<sub>1</sub> · (U<sub>i</sub> ⊗ V<sub>j</sub>)))
+                    </div>
+<p class="text-sm text-blue-300 mt-2">
+                        其中，U<sub>i</sub>和V<sub>j</sub>分别是用户i和订单j的嵌入向量，W<sub>1</sub>和W<sub>2</sub>是模型参数，σ是激活函数
+                    </p>
+</div>
+</div>
+<!-- Right Column: Constraints and Challenges -->
+<div class="col-span-5 flex flex-col gap-6">
+<!-- Constraints Section -->
+<div class="bg-blue-900 bg-opacity-30 rounded-lg p-6 border border-blue-800 flex-1">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center mr-3">
+<i class="fas fa-ban text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold">约束条件</h2>
+</div>
+<ul class="space-y-3 text-blue-100">
+<li class="flex items-start">
+<i class="fas fa-exclamation-triangle mt-1 mr-2 text-orange-400"></i>
+<span>每个资方的<span class="highlight">资金容量</span>限制</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-exclamation-triangle mt-1 mr-2 text-orange-400"></i>
+<span>订单的<span class="highlight">金额要求</span>必须满足</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-exclamation-triangle mt-1 mr-2 text-orange-400"></i>
+<span>模型输出的<span class="highlight">通过率</span>需在0-1范围内</span>
+</li>
+</ul>
+</div>
+<!-- Challenges Section -->
+<div class="bg-blue-900 bg-opacity-30 rounded-lg p-6 border border-blue-800 flex-1">
+<div class="flex items-center mb-4">
+<div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-3">
+<i class="fas fa-exclamation-circle text-white"></i>
+</div>
+<h2 class="text-2xl font-semibold">应用挑战</h2>
+</div>
+<ul class="space-y-3 text-blue-100">
+<li class="flex items-start">
+<i class="fas fa-angle-right mt-1 mr-2 text-orange-400"></i>
+<span><span class="highlight">多目标融合优化</span>困难，难以同时最大化通过率和资金利用率</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-angle-right mt-1 mr-2 text-orange-400"></i>
+<span><span class="highlight">目标定义模糊</span>，难以量化个性化匹配的收益</span>
+</li>
+<li class="flex items-start">
+<i class="fas fa-angle-right mt-1 mr-2 text-orange-400"></i>
+<span><span class="highlight">实时性要求高</span>，需快速响应订单匹配请求</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="absolute bottom-4 right-6 text-sm text-blue-300 flex items-center">
+<i class="fas fa-info-circle mr-2"></i>
+<span>基于深度学习的推荐模型无法直接处理多目标优化问题</span>
+</div>
+</div>
+
+</body></html>

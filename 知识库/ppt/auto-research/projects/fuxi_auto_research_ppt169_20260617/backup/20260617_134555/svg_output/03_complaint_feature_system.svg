@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#00A884"/>
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1565C0"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#00A884"/>
+    </marker>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1280" height="720" fill="#F7FAFC"/>
+    <rect x="0" y="0" width="1280" height="116" fill="#FFFFFF"/>
+    <rect x="48" y="104" width="1184" height="1" fill="#D8E1EA"/>
+  </g>
+
+  <g id="header">
+    <rect x="48" y="38" width="8" height="44" rx="4" fill="url(#titleGradient)"/>
+    <text x="70" y="63" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="36" font-weight="700" fill="#0B1F33">客诉风险识别：四路特征融合判断投诉强度</text>
+    <text x="70" y="92" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" fill="#6B7280">客诉模型特征、信贷话务特征、AI 文本特征与 AI 情绪特征共同支撑外诉 T30 风险分层</text>
+  </g>
+
+  <g id="center-risk-core">
+    <circle cx="640" cy="366" r="88" fill="#0B1F33"/>
+    <circle cx="640" cy="366" r="72" fill="#0B1F33" stroke="#00A884" stroke-width="2"/>
+    <text x="640" y="346" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">客诉风险识别</text>
+    <text x="640" y="376" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" fill="#D8E1EA" text-anchor="middle">结构化变量 × AI 理解</text>
+    <text x="640" y="402" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#00A884" text-anchor="middle">输出高低风险分层</text>
+  </g>
+
+  <g id="connector-lines">
+    <line x1="552" y1="312" x2="456" y2="254" stroke="#1565C0" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <line x1="728" y1="312" x2="824" y2="254" stroke="#1565C0" stroke-width="3" marker-end="url(#arrowBlue)"/>
+    <line x1="552" y1="420" x2="456" y2="478" stroke="#00A884" stroke-width="3" marker-end="url(#arrowGreen)"/>
+    <line x1="728" y1="420" x2="824" y2="478" stroke="#00A884" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  </g>
+
+  <g id="model-features">
+    <rect x="48" y="138" width="484" height="212" rx="8" fill="#FFFFFF" stroke="#1565C0" stroke-width="1.4"/>
+    <rect x="48" y="138" width="484" height="48" rx="8" fill="#E8F2FF"/>
+    <use data-icon="phosphor-duotone/shield-warning" x="74" y="151" width="26" height="26" fill="#1565C0"/>
+    <text x="112" y="169" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="700" fill="#0B1F33">信贷客诉模型特征</text>
+    <text x="430" y="169" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#1565C0" text-anchor="end">结构化变量层</text>
+
+    <g id="intent-feature">
+      <rect x="74" y="204" width="206" height="112" rx="8" fill="#FDECEC" stroke="#E55353" stroke-width="1"/>
+      <text x="94" y="229" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#E55353">客诉与进线历史</text>
+      <text x="94" y="254" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">ticketcount / 90d 非本人</text>
+      <text x="94" y="276" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">incoming_cnt_15_day</text>
+      <text x="94" y="298" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">total_complaint_7d / 10d</text>
+    </g>
+
+    <g id="effort-feature">
+      <rect x="304" y="204" width="202" height="112" rx="8" fill="#E8F8F2" stroke="#00A884" stroke-width="1"/>
+      <text x="324" y="229" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#00A884">行为 / 履约 / 人群</text>
+      <text x="324" y="254" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">APP / API / 账单页操作</text>
+      <text x="324" y="276" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">还款、逾期、拒绝、协商</text>
+      <text x="324" y="298" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">年龄、地域 GDP、历史评分</text>
+    </g>
+  </g>
+
+  <g id="call-features">
+    <rect x="748" y="138" width="484" height="212" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2"/>
+    <rect x="748" y="138" width="484" height="48" rx="8" fill="#E8F2FF"/>
+    <use data-icon="phosphor-duotone/phone-call" x="774" y="151" width="26" height="26" fill="#1565C0"/>
+    <text x="812" y="169" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="700" fill="#0B1F33">信贷话务特征</text>
+    <text x="1210" y="169" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#1565C0" text-anchor="end">接触强度层</text>
+
+    <g id="call-feature-list">
+      <rect x="774" y="205" width="92" height="74" rx="8" fill="#F7FAFC" stroke="#D8E1EA" stroke-width="1"/>
+      <text x="820" y="234" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="700" fill="#1565C0" text-anchor="middle">进线</text>
+      <text x="820" y="259" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280" text-anchor="middle">jinxian_cnt</text>
+
+      <rect x="888" y="205" width="116" height="74" rx="8" fill="#F7FAFC" stroke="#D8E1EA" stroke-width="1"/>
+      <text x="946" y="235" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33" text-anchor="middle">通话时长</text>
+      <text x="946" y="259" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280" text-anchor="middle">max / avg / total</text>
+
+      <rect x="1026" y="205" width="82" height="74" rx="8" fill="#F7FAFC" stroke="#D8E1EA" stroke-width="1"/>
+      <text x="1067" y="235" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#0B1F33" text-anchor="middle">凭证</text>
+      <text x="1067" y="259" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280" text-anchor="middle">截图 / 附件</text>
+
+      <rect x="1130" y="205" width="76" height="74" rx="8" fill="#FDECEC" stroke="#E55353" stroke-width="1"/>
+      <text x="1168" y="235" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#E55353" text-anchor="middle">强动作</text>
+      <text x="1168" y="259" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280" text-anchor="middle">上门 / 诉讼</text>
+
+      <rect x="774" y="298" width="432" height="24" rx="8" fill="#E8F8F2"/>
+      <text x="990" y="315" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="700" fill="#00A884" text-anchor="middle">外诉、投诉来源、投诉 APP、多渠道投诉、黑猫 30d</text>
+    </g>
+  </g>
+
+  <g id="text-features">
+    <rect x="48" y="382" width="484" height="244" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2"/>
+    <rect x="48" y="382" width="484" height="48" rx="8" fill="#E8F8F2"/>
+    <use data-icon="phosphor-duotone/chat-text" x="74" y="395" width="26" height="26" fill="#00A884"/>
+    <text x="112" y="413" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="700" fill="#0B1F33">AI 文本特征</text>
+    <text x="430" y="413" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#00A884" text-anchor="end">语义证据层</text>
+
+    <g id="text-tags">
+      <rect x="74" y="456" width="206" height="120" rx="8" fill="#FDECEC" stroke="#E55353" stroke-width="1"/>
+      <text x="94" y="481" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#E55353">强意愿 / 已付出</text>
+      <text x="94" y="506" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">高频催促或并发多渠道</text>
+      <text x="94" y="528" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">声称外诉、上门、诉讼</text>
+      <text x="94" y="550" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">提供收入困难、征信、发票</text>
+
+      <rect x="304" y="456" width="202" height="120" rx="8" fill="#E8F2FF" stroke="#1565C0" stroke-width="1"/>
+      <text x="324" y="481" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="16" font-weight="700" fill="#1565C0">弱意愿 / 虚拟计划</text>
+      <text x="324" y="506" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">一次性进线，无重复动作</text>
+      <text x="324" y="528" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">首次进线，无历史行为</text>
+      <text x="324" y="550" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#0B1F33">沟通较短，APP 行为弱</text>
+    </g>
+  </g>
+
+  <g id="emotion-features">
+    <rect x="748" y="382" width="484" height="244" rx="8" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="1.2"/>
+    <rect x="748" y="382" width="484" height="48" rx="8" fill="#FDECEC"/>
+    <use data-icon="phosphor-duotone/heartbeat" x="774" y="395" width="26" height="26" fill="#E55353"/>
+    <text x="812" y="413" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="18" font-weight="700" fill="#0B1F33">AI 情绪特征</text>
+    <text x="1210" y="413" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#E55353" text-anchor="end">态度强度层</text>
+
+    <g id="emotion-scale">
+      <rect x="774" y="462" width="432" height="28" rx="8" fill="#E8F8F2"/>
+      <rect x="918" y="462" width="144" height="28" fill="#E8F2FF"/>
+      <rect x="1062" y="462" width="144" height="28" rx="8" fill="#FDECEC"/>
+      <text x="846" y="481" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="700" fill="#00A884" text-anchor="middle">平稳</text>
+      <text x="990" y="481" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="700" fill="#1565C0" text-anchor="middle">急迫</text>
+      <text x="1134" y="481" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" font-weight="700" fill="#E55353" text-anchor="middle">强不满</text>
+
+      <text x="774" y="530" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="14" font-weight="700" fill="#0B1F33">重点捕捉情绪升级信号</text>
+      <text x="774" y="558" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#6B7280">反复施压、对抗表达、低耐受、强催促</text>
+      <text x="774" y="582" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="13" fill="#6B7280">与话务频次和文本意图交叉后，提升风险置信度</text>
+    </g>
+  </g>
+
+  <g id="bottom-takeaway">
+    <rect x="48" y="646" width="1184" height="38" rx="8" fill="#0B1F33"/>
+    <text x="70" y="671" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="17" font-weight="700" fill="#FFFFFF">
+      结构化模型变量负责“事实底座”，AI 文本负责强弱与费力度理解：
+      <tspan fill="#00A884">再叠加话务动作和情绪强度，形成更稳的外诉风险判断</tspan>
+    </text>
+  </g>
+
+  <g id="footer">
+    <text x="48" y="704" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280">Source: 内部客诉与信贷话务特征梳理；风险分层口径用于模型特征说明</text>
+    <text x="1232" y="704" font-family='"Microsoft YaHei", "PingFang SC", Arial, sans-serif' font-size="12" fill="#6B7280" text-anchor="end">03 / 03</text>
+  </g>
+</svg>
